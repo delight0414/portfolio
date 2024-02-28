@@ -1,0 +1,409 @@
+#main h2,
+section h2 {
+    font-size: 14vw;
+    line-height: 0.9;
+    font-weight: 400;
+}
+#main {
+    height: 100vh;
+    position: relative;
+}
+#main .top {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5em;
+    padding: 0 6vw;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+#main a.tab {
+	display: none;
+	position: relative;
+	width: 40px;
+	height: 25px;
+}
+#main a.tab span {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 1px;
+	background-color: #000;
+	transition: 0.3s;
+}
+#main a.tab span:nth-child(1) {
+	width: 100%;
+}
+#main a.tab span:nth-child(2) {
+	top: 10px;
+	width: 80%;
+}
+#main a.tab span:nth-child(3) {
+	top: 20px;
+	width: 70%;
+}
+#main a.tab.open span:nth-child(1) {
+	top: 10px;
+	width: 30px;
+	transform: rotate(45deg);
+}
+#main a.tab.open span:nth-child(2) {
+	display: none;
+}
+#main a.tab.open span:nth-child(3) {
+	top: 10px;
+	width: 30px;
+	transform: rotate(-45deg);
+}
+
+#main h1 {
+    display: block;
+    width: 3.375em;
+    height: 1.875em;
+    background: url(../images/logo.svg) 0 0 no-repeat;
+    background-size: contain;
+    text-indent: -999px;
+    overflow: hidden;
+}
+nav#gnb ul {
+    display: flex;
+    margin: 0 auto;
+}
+nav#gnb ul li {
+    padding: 0 1.125em;
+}
+nav#gnb ul li a {
+    font-family: "Antonio";
+    display: block;
+    line-height: 5em;
+    font-size: 1.125em;
+    font-weight: 700;
+    color: #888;
+}
+nav#gnb ul li:last-child{
+    padding-right: 0;
+}
+nav#gnb ul li.active a {
+    color: #000;
+}
+#main .keytext {
+    position: absolute;
+    right: 0;
+    bottom: 5vh;
+    text-align: right;
+    word-break: keep-all;
+    padding: 0 6vw;
+}
+#main .keytext span {
+	display: block;
+	padding-top: 20px;
+	font-size: 1.1em;
+}
+nav#mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff8;
+    backdrop-filter: blur(10px);
+}
+nav#mobile ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+nav#mobile ul li a {
+    font-size: 4em;
+}
+nav#mobile ul li a {
+    font-size: 4em;
+}
+@media only screen and (max-width:1280px) {
+    body {
+        font-size: 0.975em;
+    }
+        #main h2,
+        section h2 {
+        font-size: 16vw;
+    }
+}
+@media only screen and (max-width:940px){
+    body {
+        font-size: 0.875em;
+    }
+        #main h2,
+        section h2 {
+        font-size: 18vw;
+    }
+    #main .keytext {
+        bottom: 9vh;
+    }
+}
+@media only screen and (max-width:720px){
+    body {
+        font-size: 0.8125em;
+    }
+    #main h2,
+    section h2 {
+        font-size: 20vw;
+    }
+    #main .top {
+        padding: 0 30px;
+    }
+    #main .keytext {
+        bottom: 15vh;
+        padding: 0 30px;
+    }
+    nav#gnb { 
+        display: none;
+    }
+    #main a.tab {
+        display: block;
+    }
+}
+section {
+    padding: 8em 0;
+}
+section .sec-inner {
+    padding: 0 10vw;
+}
+section h4 {
+    font-size: 2em;
+    font-weight: 400;
+    position: relative;
+}
+section h4::after {
+    position: absolute;
+    content: "";
+    left: -70px;
+    top: 50%;
+    width: 50px;
+    height: 1px;
+    background-color: #000;
+}
+@media only screen and (max-width:720px){
+    section .sec-inner {
+        padding: 0 60px;
+    }
+}
+#about .about-desc {
+    display: flex;
+    justify-content: space-between;
+    padding: 3em 0;
+}
+#about .about-desc .about-headline {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+}
+#about .about-desc .about-headline strong {
+    font-size: 2.75em;
+    line-height: 1.5;
+}
+#about .about-desc .about-sub-text {
+    width: 500px;
+    padding-top: 20em;
+}
+#about .about-desc .about-sub-text p {
+    text-align: justify;
+    line-height: 2;
+}
+@media only screen and (max-width:940px){
+    #about .about-desc .about-headline strong {
+        font-size: 2.5em;
+    }
+    #about .about-desc .about-sub-text {
+        width: 300px;
+    }
+}
+@media only screen and (max-width:720px){
+    #about .about-desc {
+        flex-direction: column;
+    }
+    #about .about-desc .about-sub-text {
+        width: auto;
+        padding-top: 5em;
+    }
+}
+#skills .skill-swiper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;  
+    padding: 4em 10vw;
+    box-sizing: border-box;
+    position: relative;
+}
+#skills .skill-swiper .swiper-slide .skill p {
+    font-family: "Antonio";
+    font-weight: 700;
+}
+#skills .skill-swiper .swiper-slide .skill p.category {
+    font-size: 1.875em;
+}
+#skills .skill-swiper .swiper-slide .skill ul {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-top: 2em;
+}
+#skills .skill-swiper .swiper-slide .skill ul li {
+    display: block;
+    width: 3.125em;
+    height: 3.125em;
+    padding-right: 1em;
+}
+#skills .skill-swiper .swiper-slide .skill ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+#skills .skill-swiper .swiper-slide .desc {
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", "Noto Sans KR";
+}
+#skills .skill-swiper .swiper-slide .desc span {
+    font-size: 0.875em;
+    line-height: 1.8;
+}
+#skills .skill-swiper .swiper-scrollbar {
+    width: calc(100% - 20vw);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+@media only screen and (max-width:1280px){
+    #skills .skill-swiper .swiper-slide .skill p.category {
+        font-size: 1.75em;
+    }
+    #skills .skill-swiper .swiper-slide .skill p.num {
+        font-size: 0.9375em;
+    }
+}
+@media only screen and (max-width:720px){
+    #skills .skill-swiper {  
+        padding: 4em 60px;
+    }
+    #skills .skill-swiper .swiper-scrollbar {
+        width: calc(100% - 100px);
+    }
+}
+#works { /**/
+    padding: 30vh 0;
+}
+#works h2 {
+    text-align: center;
+}
+#contact { /**/
+    position: relative;
+    padding: 15vh 0 8em;
+}
+#contact .contact-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#contact .contact-top .contact-heading h2 {
+    font-size: 8vw;
+}
+#contact .contact-top .information {
+    white-space: nowrap;
+}
+#contact .contact-top .information ul li {
+    display: flex;
+    align-items: center;
+}
+#contact .contact-top .information ul li:last-child {
+    padding-top: 1.875em;
+}
+#contact .contact-top .information ul li span {
+    font-size: 1.875em;
+    padding-right: 2em;
+}
+#contact .contact-top .information ul li p {
+    font-size: 4vw;
+}
+#contact .contact-bottom {
+    font-family: 'Antonio';
+    margin-top: 8em;
+}
+#contact .contact-bottom ul li a {
+    display: flex;
+    gap: 14px;
+    line-height: 1.5;
+}
+#contact .contact-bottom ul li a span {
+    font-weight: 700;
+    font-size: 1.875em;
+}
+#contact .contact-bottom p.copyright {
+    position: absolute;
+    right: 6vw;
+    bottom: 8em;
+    width: fit-content;
+    color: #888;
+}
+@media only screen and (max-width:720px){
+    #contact .contact-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #contact .contact-top .contact-heading h2 {
+        font-size: 12vw;
+    }
+    #contact .contact-top .information ul li p {
+        font-size: 6vw;
+    }
+    #contact .contact-top .information {
+        margin-top: 8em;
+    }
+    #contact .contact-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #contact .contact-bottom p.copyright {
+        position: static;
+        margin-top: 5em;
+    }
+    #contact .contact-bottom ul {
+        display: flex;
+        justify-content: center;
+    }
+    #contact .contact-bottom ul li {
+        padding: 0 10px;
+    }
+    #contact .contact-bottom ul li a img {
+        display: none;
+    }
+}
+.cursor {
+	position: absolute;
+	z-index: 10000;
+	width: 10px;
+	height: 10px;
+	background-color: #00D091;
+	border-radius: 50%;
+	user-select: none;
+	pointer-events: none;
+	transform: scale(1);
+	transition: transform 0.3s ease-in-out;
+}
+.cursor.active1 {
+	width: 22vw;
+	height: 14vw;
+	background: url(../images/arrow.png) no-repeat center;
+	background-size: contain;
+}

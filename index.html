@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@100..700&family=Noto+Sans+KR:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@terwanerik/scrolltrigger@1.0.5/dist/ScrollTrigger.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script> -->
+<script src="js/main.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="main">
+        <div class="top">
+            <h1>logo</h1>
+            <nav id="gnb">
+                <ul>
+                    <li><a href="">INTRO</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="">SKILLS</a></li>
+                    <li><a href="">WORKS</a></li>
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </nav>
+            <nav id="mobile">
+                <ul>
+                    <li><a href="">INTRO</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="">SKILLS</a></li>
+                    <li><a href="">WORKS</a></li>
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </nav>
+            <a href="" class="tab">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+        <div class="keytext">
+            <h2>FRONTEND<br>DEVELOPER</h2>
+            <span>항상 성장하고 발전하기 위해 노력하며, 더 나은 웹 세상을 만들기 위해 끊임없이 노력할 것을 약속드립니다.</span>
+        </div>
+    </div>
+    <section id="about">
+        <div class="sec-inner">
+            <h4>ABOUT</h4>
+            <div class="about-desc">
+                <div class="about-headline">
+                <strong>어려운 것을 쉽게,</strong>
+                <strong>쉬운 것을 깊게,</strong>
+                <strong>깊은 것을 유쾌하게!</strong>
+            </div>
+            <div class="about-sub-text">
+                <p>모든 국민은 거주·이전의 자유를 가진다. 대한민국은 국제평화의 
+                    유지에 노력하고 침략적 전쟁을 부인한다. 이 헌법시행 당시에 
+                    이 헌법에 의하여 새로 설치될 기관의 권한에 속하는 직무를 행하고 
+                    있는 기관은 이 헌법에 의하여 새로운 기관이 설치될 때까지 
+                    존속하며 그 직무를 행한다. </p>
+                    <br>
+                <p>국가는 청원에 대하여 심사할 의무를 진다.
+                    국회는 법률에 저촉되지 아니하는 범위안에서 의사와 내부규율에 
+                    관한 규칙을 제정할 수 있다. </p>
+            </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="sec-inner">
+            <h4>SKILLS</h4>
+        </div>
+            <div class="skill-swiper skillSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="skill">
+                            <p class="num">01</p>
+                            <p class="category">UI/UX</p>
+                            <ul>
+                                <li><img src="images/skill_html.svg" alt=""></li>
+                                <li><img src="images/skill_css.svg" alt=""></li>
+                                <li><img src="images/skill_JS.svg" alt=""></li>
+                                <li><img src="images/skill_figma.svg" alt=""></li>
+                            </ul>
+                            <div class="desc">
+                                <span>사용자 경험을 높이는 UI/UX 디자인 구현</span>
+                                <span>웹 접근성을 고려한 인터페이스 디자인 및 개발</span>
+                                <span>CSS 및 JavaScript를 활용한 동적 웹 페이지 구현</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="skill">
+                            <p class="num">02</p>
+                            <p class="category">SCSS</p>
+                            <ul>
+                                <li><img src="images/skill_sass.svg" alt=""></li>
+                            </ul>
+                            <div class="desc">
+                                <span>사용자 경험을 높이는 UI/UX 디자인 구현</span>
+                                <span>웹 접근성을 고려한 인터페이스 디자인 및 개발</span>
+                                <span>CSS 및 JavaScript를 활용한 동적 웹 페이지 구현</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="skill">
+                            <p class="num">03</p>
+                            <p class="category">FRONTEND</p>
+                            <ul>
+                                <li><img src="images/skill_react.svg" alt=""></li>
+                                <li><img src="images/skill_redux.svg" alt=""></li>
+                                <li><img src="images/skill_router.svg" alt=""></li>
+                                <li><img src="images/skill_JSX.svg" alt=""></li>
+                                <li><img src="images/skill_axios.svg" alt=""></li>
+                            </ul>
+                            <div class="desc">
+                                <span>사용자 경험을 높이는 UI/UX 디자인 구현</span>
+                                <span>웹 접근성을 고려한 인터페이스 디자인 및 개발</span>
+                                <span>CSS 및 JavaScript를 활용한 동적 웹 페이지 구현</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="skill">
+                            <p class="num">04</p>
+                            <p class="category">BACKEND</p>
+                            <ul>
+                                <li><img src="images/skill_nodeJS.svg" alt=""></li>
+                                <li><img src="images/skill_nodeExpress.svg" alt=""></li>
+                            </ul>
+                            <div class="desc">
+                                <span>사용자 경험을 높이는 UI/UX 디자인 구현</span>
+                                <span>웹 접근성을 고려한 인터페이스 디자인 및 개발</span>
+                                <span>CSS 및 JavaScript를 활용한 동적 웹 페이지 구현</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="skill">
+                            <p class="num">05</p>
+                            <p class="category">DB</p>
+                            <ul>
+                                <li><img src="images/skill_mongoDB.svg" alt=""></li>
+                            </ul>
+                            <div class="desc">
+                                <span>사용자 경험을 높이는 UI/UX 디자인 구현</span>
+                                <span>웹 접근성을 고려한 인터페이스 디자인 및 개발</span>
+                                <span>CSS 및 JavaScript를 활용한 동적 웹 페이지 구현</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="skill">
+                            <p class="num">06</p>
+                            <p class="category">SCM</p>
+                            <ul>
+                                <li><img src="images/skill_Github.svg" alt=""></li>
+                                <li><img src="images/skill_Git.svg" alt=""></li>
+                            </ul>
+                            <div class="desc">
+                                <span>사용자 경험을 높이는 UI/UX 디자인 구현</span>
+                                <span>웹 접근성을 고려한 인터페이스 디자인 및 개발</span>
+                                <span>CSS 및 JavaScript를 활용한 동적 웹 페이지 구현</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+    </section>
+    <section id="works">
+        <h2><a href="">WORKS</a></h2>
+    </section>
+    <section id="contact">
+        <div class="sec-inner">
+            <div class="contact-top">
+                <div class="contact-heading"><h2>CONTACT</h2></div>
+                <div class="information">
+                    <ul>
+                        <li><span>E-MAIL</span> <p>tyu3116@naver.com</p></li>
+                        <li><span>MOBILE</span> <p>010-2443-0414</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact-bottom">
+                <ul>
+                    <li><a href=""><img src="images/title_line.svg" alt=""><span>CODEPEN</span></a></li>
+                    <li><a href=""><img src="images/title_line.svg" alt=""><span>FIGMA</span></a></li>
+                    <li><a href=""><img src="images/title_line.svg" alt=""><span>GITHUB</span></a></li>
+                    
+                </ul>
+                <p class="copyright">© KangChaHee 2024  ALL RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </section>
+    <div class="cursor"></div>
+</div>
+</body>
+</html>
