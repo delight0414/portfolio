@@ -93,7 +93,6 @@ window.addEventListener("load", function(){
 		}
 		else if(t < sectionList[4].offsetTop){
 			n=3;
-
 			if(window.innerHeight + t === document.body.scrollHeight){
 				n=4;
 			}
@@ -101,16 +100,18 @@ window.addEventListener("load", function(){
 		else {
 			n=4;
 		}
-		
+
 		for(let i=0; i<gnbLi.length; i++){
 			if(i === n){
 				if(!gnbLi[i].classList.contains("active")){
 					gnbLi[i].classList.add("active");
+					mobileList[i].classList.add("active");
 				}
 			}
 			else {
 				if(gnbLi[i].classList.contains("active")){
 					gnbLi[i].classList.remove("active");
+					mobileList[i].classList.remove("active");
 				}
 			}
 		}
@@ -136,12 +137,16 @@ window.addEventListener("load", function(){
 		if(!e.currentTarget.classList.contains("open")){
 			e.currentTarget.classList.add("open");
 			document.body.classList.add("stop-scrolling");
-			mobileMenu.style.display="block";
+			
+			gsap.fromTo(mobileMenu, {display: "block", opacity:0}, {opacity:1, duration: 0.3});
 		}
 		else {
 			e.currentTarget.classList.remove("open");
 			document.body.classList.remove("stop-scrolling");
-			mobileMenu.style.display="none";
+
+			gsap.to(mobileMenu, {opacity:0, duration:0.3, oncComplete: function(){
+				mobileMenu.style.display="none";
+			}});
 		}
 	});
 
@@ -156,9 +161,6 @@ window.addEventListener("load", function(){
 				mobileMenu.style.display="none";
 				gsap.to(window, {scrollTo: targety, duration:0.7});
 			}
-			// 내가 누른 모바일 메뉴 순번과 같은 순번의 섹션리스트 targety가 0이면
-			// 누른 모바일 메뉴에 add class
-			console.log();
 		});
 	}
 
