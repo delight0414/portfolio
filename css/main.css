@@ -125,9 +125,10 @@ nav#mobile ul {
 }
 nav#mobile ul li a {
     font-size: 4em;
+    color: #888;
 }
-nav#mobile ul li a {
-    font-size: 4em;
+nav#mobile ul li.active a {
+    color: #000;
 }
 @media only screen and (max-width:1280px) {
     body {
