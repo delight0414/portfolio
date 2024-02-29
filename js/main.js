@@ -131,7 +131,7 @@ window.addEventListener("load", function(){
 
     sectionList[3].addEventListener("mouseenter", function(){;
         if(!cursor.classList.contains("active1")){
-            cursor.classList.add("active1");
+        cursor.classList.add("active1");
         }
     });
     sectionList[3].addEventListener("mouseleave", function(){
@@ -142,7 +142,7 @@ window.addEventListener("load", function(){
 
 	let mobileTab=document.querySelector("#main a.tab");
 	let mobileMenu=document.querySelector("nav#mobile");
-	let mobileList=mobileMenu.firstElementChild.children;
+	let mobileLi=mobileMenu.firstElementChild.children;
 
 	mobileTab.addEventListener("click", function(e){
 		e.preventDefault();
@@ -158,8 +158,8 @@ window.addEventListener("load", function(){
 		}
 	});
 
-	for(let i=0; i<mobileList.length; i++){
-		mobileList[i].addEventListener("click", function(e){
+	for(let i=0; i<mobileLi.length; i++){
+		mobileLi[i].addEventListener("click", function(e){
 			e.preventDefault();
 			targety=sectionList[i].offsetTop*0.9;
 
