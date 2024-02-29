@@ -57,7 +57,7 @@ window.addEventListener("load", function(){
 	let n=0;
 	let targety=0;
 
-	gnbLi[n].classList.add("active");
+	// gnbLi[n].classList.add("active");
 
 	const trigger=new ScrollTrigger.default({
 		trigger: {
@@ -119,30 +119,17 @@ window.addEventListener("load", function(){
 	for(let i=0; i<gnbLi.length; i++){
 		gnbLi[i].addEventListener("click", function(e){
 			e.preventDefault();
-			targety=sectionList[i].offsetTop;
+			// e.currentTarget.classList.add("active");
 
-			gsap.to(window, {scrollTo: targety, duration:0.7});
+			targety=sectionList[i].offsetTop;
+			gsap.to(window, {scrollTo: targety, duration:0.5});
 		});
 	}
 
-	document.body.addEventListener("mousemove", function(e){
-		gsap.to(cursor, {duration: 0.4, left: e.pageX-5, top: e.pageY-5});
-	});
-
-    sectionList[3].addEventListener("mouseenter", function(){;
-        if(!cursor.classList.contains("active1")){
-        cursor.classList.add("active1");
-        }
-    });
-    sectionList[3].addEventListener("mouseleave", function(){
-        if(cursor.classList.contains("active1")){
-            cursor.classList.remove("active1");
-        }
-    });
 
 	let mobileTab=document.querySelector("#main a.tab");
 	let mobileMenu=document.querySelector("nav#mobile");
-	let mobileLi=mobileMenu.firstElementChild.children;
+	let mobileList=mobileMenu.firstElementChild.children;
 
 	mobileTab.addEventListener("click", function(e){
 		e.preventDefault();
@@ -158,10 +145,10 @@ window.addEventListener("load", function(){
 		}
 	});
 
-	for(let i=0; i<mobileLi.length; i++){
-		mobileLi[i].addEventListener("click", function(e){
+	for(let i=0; i<mobileList.length; i++){
+		mobileList[i].addEventListener("click", function(e){
 			e.preventDefault();
-			targety=sectionList[i].offsetTop*0.9;
+			targety=sectionList[i].offsetTop;
 
 			if(mobileTab.classList.contains("open")){
 				mobileTab.classList.remove("open");
@@ -169,6 +156,45 @@ window.addEventListener("load", function(){
 				mobileMenu.style.display="none";
 				gsap.to(window, {scrollTo: targety, duration:0.7});
 			}
+			// 내가 누른 모바일 메뉴 순번과 같은 순번의 섹션리스트 targety가 0이면
+			// 누른 모바일 메뉴에 add class
+			console.log();
 		});
 	}
+
+	function resizeTrigger(){
+		let winw=window.innerWidth;
+
+		if(winw >= 720){
+			if(document.body.classList.contains("stop-scrolling")){
+				mobileTab.classList.remove("open");
+				document.body.classList.remove("stop-scrolling");
+				mobileMenu.style.display="none";
+			}
+			else return;
+		}
+	};
+
+	window.addEventListener("resize", resizeTrigger);
+
+	if(!isMobile){
+		document.body.addEventListener("mousemove", function(e){
+			gsap.to(cursor, {duration: 0.4, left: e.pageX-5, top: e.pageY-5});
+		});
+
+		sectionList[3].addEventListener("mouseenter", function(){;
+			if(!cursor.classList.contains("active1")){
+				cursor.classList.add("active1");
+			}
+		});
+		sectionList[3].addEventListener("mouseleave", function(){
+			if(cursor.classList.contains("active1")){
+				cursor.classList.remove("active1");
+			}
+		});
+	}
+	else {
+		document.querySelector(".cursor").style.display="none";
+	}
+
 });

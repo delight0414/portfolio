@@ -110,6 +110,7 @@ nav#mobile {
     height: 100vh;
     background-color: #fff8;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 nav#mobile ul {
     position: absolute;
@@ -306,7 +307,7 @@ section h4::after {
 }
 #contact { /**/
     position: relative;
-    padding: 15vh 0 8em;
+    padding: 20vh 0 8em;
 }
 #contact .contact-top {
     display: flex;
@@ -352,6 +353,11 @@ section h4::after {
     bottom: 8em;
     width: fit-content;
     color: #888;
+}
+@media only screen and (max-width:940px){
+    #contact .contact-top .information ul li span {
+        padding-right: 1.1em;
+    }
 }
 @media only screen and (max-width:720px){
     #contact .contact-top {
@@ -402,8 +408,8 @@ section h4::after {
 	transition: transform 0.3s ease-in-out;
 }
 .cursor.active1 {
-	width: 22vw;
-	height: 14vw;
+	width: 28em;
+	height: 16.125em;
 	background: url(../images/arrow.png) no-repeat center;
 	background-size: contain;
 }
