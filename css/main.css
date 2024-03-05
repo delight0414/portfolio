@@ -125,26 +125,12 @@ nav#gnb ul li.active a {
 	padding-top: 20px;
 	font-size: 1.1em;
 }
-/* #main .keytext .main_text {
-    position: relative;
-    overflow: hidden;
-}*/
 #main .keytext h2 {
     background-image: url(../images/background.gif);
     background-size: cover;
     background-clip: text;
     color: transparent;
 }
-
-/* #main .keytext .main_text video {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}  */
 nav#mobile {
     display: none;
     position: fixed;
@@ -387,10 +373,32 @@ section h4::after {
 	background-size: contain;
     z-index: -1;
 }
-#works h2 a {
+#works a {
     display: block;
     text-align: center;
     padding: 30vh 0;
+}
+#works a span.hero {
+    font-size: 14vw;
+    color: #000;
+}
+.dark #works a span.hero {
+    color: #fff;
+}
+@media only screen and (max-width:1280px) {
+    #works a span.hero {
+        font-size: 16vw;
+    }
+}
+@media only screen and (max-width:940px){
+    #works a span.hero{
+        font-size: 18vw;
+    }
+}
+@media only screen and (max-width:720px){
+    #works a span.hero {
+        font-size: 20vw;
+    }
 }
 #contact { /**/
     position: relative;
@@ -497,18 +505,21 @@ section h4::after {
 .cursor {
 	position: absolute;
 	z-index: 10000;
-	width: 10px;
-	height: 10px;
-	background-color: #00D091;
+	width: 15px;
+	height: 15px;
+	background-color: #f90;
 	border-radius: 50%;
 	user-select: none;
 	pointer-events: none;
 	transform: scale(1);
 	transition: transform 0.3s ease-in-out;
+    /* mix-blend-mode: excllusion; */
 }
-.cursor.active1 {
+
+/* .cursor.active1 {
 	width: 28em;
 	height: 16.125em;
 	background: url(../images/arrow.png) no-repeat center;
 	background-size: contain;
-}
+    mix-blend-mode: exclusion;
+} */
