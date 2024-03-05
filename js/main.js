@@ -5,10 +5,10 @@ window.addEventListener("load", function(){
 
 	let video=document.getElementById("title_video");
     video.addEventListener("loadeddata", function(){
-        main_video.play();
+        title_video.play();
     });
     video.addEventListener("ended", function(){
-        main_video.play();  
+        title_video.play(); 
     });
 
     const skillSwiper = new Swiper(".skillSwiper", {
