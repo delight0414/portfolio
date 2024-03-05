@@ -1,4 +1,8 @@
 window.addEventListener("load", function(){
+	AOS.init({
+		easing: "ease-in-out-sine"
+	});
+
     const skillSwiper = new Swiper(".skillSwiper", {
     slidesPerView: 1,
     spaceBetween: 10,
@@ -53,35 +57,19 @@ window.addEventListener("load", function(){
 		sectionList.push(section[i]);
 	}
 
+
 	let t=0;
 	let n=0;
 	let targety=0;
 
-	// gnbLi[n].classList.add("active");
+	let mobileTab=document.querySelector("#main a.tab");
+	let mobileMenu=document.querySelector("nav#mobile");
+	let mobileList=mobileMenu.firstElementChild.children;
 
-	const trigger=new ScrollTrigger.default({
-		trigger: {
-			once: true,
-			toggle: {
-				class: {
-					in: "active",
-					out: "inactive"
-				}
-			},
-			offset: {
-				viewport: {
-					y: 0.25
-				}
-			}
-		},
-		scroll: {
-			callback: offset => scrollInteraction(offset.y)
-		}
-	});
+	function scrollTrigger(){
+		let t=window.pageYOffset;
+		let winh=window.innerHeight;
 
-	trigger.add(sectionList);
-
-	function scrollInteraction(t){
 		if(t < sectionList[1].offsetTop){
 			n=0;
 		}
@@ -100,7 +88,16 @@ window.addEventListener("load", function(){
 		else {
 			n=4;
 		}
-
+		if(t > sectionList[2].offsetTop + winh/2){
+			if(document.body.classList.contains("dark") == false){
+				document.body.classList.add("dark");
+			}
+		}
+		else {
+			if(document.body.classList.contains("dark") == true){
+				document.body.classList.remove("dark");
+			}
+		}
 		for(let i=0; i<gnbLi.length; i++){
 			if(i === n){
 				if(!gnbLi[i].classList.contains("active")){
@@ -115,22 +112,20 @@ window.addEventListener("load", function(){
 				}
 			}
 		}
-	}
-	
+	};
+
+	scrollTrigger();
+
+	window.addEventListener("scroll", scrollTrigger);
+
 	for(let i=0; i<gnbLi.length; i++){
 		gnbLi[i].addEventListener("click", function(e){
 			e.preventDefault();
-			// e.currentTarget.classList.add("active");
 
 			targety=sectionList[i].offsetTop;
 			gsap.to(window, {scrollTo: targety, duration:0.5});
 		});
 	}
-
-
-	let mobileTab=document.querySelector("#main a.tab");
-	let mobileMenu=document.querySelector("nav#mobile");
-	let mobileList=mobileMenu.firstElementChild.children;
 
 	mobileTab.addEventListener("click", function(e){
 		e.preventDefault();
@@ -197,6 +192,7 @@ window.addEventListener("load", function(){
 	}
 	else {
 		document.querySelector(".cursor").style.display="none";
+		sectionList[3].classList.add("mobile");
 	}
 
 });

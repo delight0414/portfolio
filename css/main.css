@@ -1,8 +1,18 @@
+body {
+    transition: 0.3s;
+}
+body.dark {
+    background-color: #000;
+
+}
 #main h2,
 section h2 {
     font-size: 14vw;
     line-height: 0.9;
     font-weight: 400;
+}
+.dark section h2 a {
+    color: #fff;
 }
 #main {
     height: 100vh;
@@ -57,12 +67,23 @@ section h2 {
 	width: 30px;
 	transform: rotate(-45deg);
 }
-
+.dark #main a.tab span {
+	background-color: #fff;
+}
 #main h1 {
     display: block;
     width: 3.375em;
     height: 1.875em;
     background: url(../images/logo.svg) 0 0 no-repeat;
+    background-size: contain;
+    text-indent: -999px;
+    overflow: hidden;
+}
+.dark #main h1 {
+    display: block;
+    width: 3.375em;
+    height: 1.875em;
+    background: url(../images/logo_white.svg) 0 0 no-repeat;    
     background-size: contain;
     text-indent: -999px;
     overflow: hidden;
@@ -73,6 +94,9 @@ nav#gnb ul {
 }
 nav#gnb ul li {
     padding: 0 1.125em;
+}
+.dark nav#gnb ul li.active a  {
+    color: #fff;
 }
 nav#gnb ul li a {
     font-family: "Antonio";
@@ -101,6 +125,23 @@ nav#gnb ul li.active a {
 	padding-top: 20px;
 	font-size: 1.1em;
 }
+#main .keytext .main_text {
+    position: relative;
+    overflow: hidden;
+}
+#main .keytext .main_text h2 {
+    background-color: #fff;
+    mix-blend-mode: screen;
+}
+#main .keytext .main_text video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
 nav#mobile {
     display: none;
     position: fixed;
@@ -127,9 +168,13 @@ nav#mobile ul li a {
     font-size: 4em;
     color: #888;
 }
+.dark nav#mobile ul li a {
+    color: #666;
+}
 nav#mobile ul li.active a {
     color: #000;
 }
+
 @media only screen and (max-width:1280px) {
     body {
         font-size: 0.975em;
@@ -192,6 +237,13 @@ section h4::after {
     width: 50px;
     height: 1px;
     background-color: #000;
+}
+.dark section h4 {
+    color: #fff;
+
+}
+.dark section h4::after {
+    background-color: #fff;
 }
 @media only screen and (max-width:720px){
     section .sec-inner {
@@ -283,6 +335,21 @@ section h4::after {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
+    background-color: #e5e5e5;
+}
+#skills .skill-swiper .swiper-scrollbar .swiper-scrollbar-drag {
+    background-color: #727272;
+}
+.dark #skills .skill-swiper .swiper-slide .skill p,
+.dark #skills .skill-swiper .swiper-slide .skill p.category,
+.dark #skills .skill-swiper .swiper-slide .desc {
+    color: #fff;
+}
+.dark #skills .skill-swiper .swiper-scrollbar {
+    background-color: #727272;
+}
+.dark #skills .skill-swiper .swiper-scrollbar .swiper-scrollbar-drag {
+    background-color: #e5e5e5;
 }
 @media only screen and (max-width:1280px){
     #skills .skill-swiper .swiper-slide .skill p.category {
@@ -300,11 +367,27 @@ section h4::after {
         width: calc(100% - 100px);
     }
 }
-#works { /**/
-    padding: 30vh 0;
+#works {
+    overflow-x: hidden;
 }
-#works h2 {
+#works.mobile {
+    position: relative;
+}
+#works.mobile::after {
+    position: absolute;
+    content: "";
+    top: 45%;
+    left: 15%;
+    width: 25em;
+	height: 13.125em;
+	background: url(../images/arrow.png) no-repeat center;
+	background-size: contain;
+    z-index: -1;
+}
+#works h2 a {
+    display: block;
     text-align: center;
+    padding: 30vh 0;
 }
 #contact { /**/
     position: relative;
@@ -339,6 +422,9 @@ section h4::after {
     font-family: 'Antonio';
     margin-top: 8em;
 }
+#contact .contact-bottom ul{
+    width: fit-content;
+}
 #contact .contact-bottom ul li a {
     display: flex;
     gap: 14px;
@@ -354,6 +440,15 @@ section h4::after {
     bottom: 8em;
     width: fit-content;
     color: #888;
+}
+.dark #contact .contact-top .contact-heading h2,
+.dark #contact .contact-top .information ul li span,
+.dark #contact .contact-top .information ul li p,
+.dark #contact .contact-bottom ul li a span {
+    color: #fff;
+}
+.dark #contact .contact-bottom ul li a img {
+    filter: invert(100%);
 }
 @media only screen and (max-width:940px){
     #contact .contact-top .information ul li span {
