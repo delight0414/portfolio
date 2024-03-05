@@ -3,13 +3,13 @@ window.addEventListener("load", function(){
 		easing: "ease-in-out-sine"
 	});
 
-	let video=document.getElementById("title_video");
-    video.addEventListener("loadeddata", function(){
-        title_video.play();
-    });
-    video.addEventListener("ended", function(){
-        title_video.play(); 
-    });
+	// let video=document.getElementById("title_video");
+    // video.addEventListener("loadeddata", function(){
+    //     title_video.play();
+    // });
+    // video.addEventListener("ended", function(){
+    //     title_video.play(); 
+    // });
 
     const skillSwiper = new Swiper(".skillSwiper", {
     slidesPerView: 1,

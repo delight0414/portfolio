@@ -125,15 +125,17 @@ nav#gnb ul li.active a {
 	padding-top: 20px;
 	font-size: 1.1em;
 }
-#main .keytext .main_text {
+/* #main .keytext .main_text {
     position: relative;
     overflow: hidden;
+}*/
+#main .keytext h2 {
+    background-image: url(../images/background.gif);
+    background-clip: text;
+    color: transparent;
 }
-#main .keytext .main_text h2 {
-    background-color: #fff;
-    mix-blend-mode: screen;
-}
-#main .keytext .main_text video {
+
+/* #main .keytext .main_text video {
     position: absolute;
     left: 0;
     top: 0;
@@ -141,7 +143,7 @@ nav#gnb ul li.active a {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-}
+}  */
 nav#mobile {
     display: none;
     position: fixed;
@@ -149,7 +151,7 @@ nav#mobile {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #fff8;
+    background-color: #fff9;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
