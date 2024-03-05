@@ -131,6 +131,7 @@ nav#gnb ul li.active a {
 }*/
 #main .keytext h2 {
     background-image: url(../images/background.gif);
+    background-size: cover;
     background-clip: text;
     color: transparent;
 }
