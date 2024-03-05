@@ -3,6 +3,14 @@ window.addEventListener("load", function(){
 		easing: "ease-in-out-sine"
 	});
 
+	let video=document.getElementById("title_video");
+    video.addEventListener("loadeddata", function(){
+        main_video.play();
+    });
+    video.addEventListener("ended", function(){
+        main_video.play();  
+    });
+
     const skillSwiper = new Swiper(".skillSwiper", {
     slidesPerView: 1,
     spaceBetween: 10,
