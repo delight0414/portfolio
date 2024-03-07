@@ -1,14 +1,16 @@
 body {
     transition: 0.3s;
+    background-color: #E8E5E3;
 }
 body.dark {
     background-color: #000;
-
 }
 #main h2,
 section h2 {
-    font-size: 14vw;
-    line-height: 0.9;
+    font-family: "Bebas Neue";
+    font-size: 10vw;
+    line-height: 0.8;
+    letter-spacing: -2px;
     font-weight: 400;
 }
 .dark section h2 a {
@@ -70,23 +72,8 @@ section h2 {
 .dark #main a.tab span {
 	background-color: #fff;
 }
-#main h1 {
-    display: block;
-    width: 3.375em;
-    height: 1.875em;
-    background: url(../images/logo.svg) 0 0 no-repeat;
-    background-size: contain;
-    text-indent: -999px;
-    overflow: hidden;
-}
 .dark #main h1 {
-    display: block;
-    width: 3.375em;
-    height: 1.875em;
-    background: url(../images/logo_white.svg) 0 0 no-repeat;    
-    background-size: contain;
-    text-indent: -999px;
-    overflow: hidden;
+    color: #E8E5E3;
 }
 nav#gnb ul {
     display: flex;
@@ -99,11 +86,9 @@ nav#gnb ul li {
     color: #fff;
 }
 nav#gnb ul li a {
-    font-family: "Antonio";
     display: block;
     line-height: 5em;
-    font-size: 1.125em;
-    font-weight: 700;
+    font-weight: 500;
     color: #888;
 }
 nav#gnb ul li:last-child{
@@ -112,24 +97,23 @@ nav#gnb ul li:last-child{
 nav#gnb ul li.active a {
     color: #000;
 }
-#main .keytext {
+.dark nav#gnb ul li.active a {
+    color: #f90;
+}
+#main .keytext_top {
     position: absolute;
-    right: 0;
+    left: 6vw;
+    top: 50%;
+    transform: translateY(-50%);
+    word-break: keep-all;
+} 
+
+#main .keytext_bottom {
+    position: absolute;
+    right: 6vw;
     bottom: 5vh;
     text-align: right;
     word-break: keep-all;
-    padding: 0 6vw;
-}
-#main .keytext span {
-	display: block;
-	padding-top: 20px;
-	font-size: 1.1em;
-}
-#main .keytext h2 {
-    background-image: url(../images/background.gif);
-    background-size: cover;
-    background-clip: text;
-    color: transparent;
 }
 nav#mobile {
     display: none;
@@ -141,6 +125,7 @@ nav#mobile {
     background-color: #fff9;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    font-family: "Bebas Neue";
 }
 nav#mobile ul {
     position: absolute;
@@ -163,42 +148,43 @@ nav#mobile ul li a {
 nav#mobile ul li.active a {
     color: #000;
 }
-
+.dark nav#mobile ul li.active a {
+    color: #cb450c;
+}
 @media only screen and (max-width:1280px) {
     body {
         font-size: 0.975em;
     }
-        #main h2,
-        section h2 {
-        font-size: 16vw;
+    #main .keytext_top h2,
+    section h2 {
+        font-size: 12vw;
     }
 }
 @media only screen and (max-width:940px){
     body {
         font-size: 0.875em;
     }
-        #main h2,
-        section h2 {
-        font-size: 18vw;
-    }
-    #main .keytext {
-        bottom: 9vh;
+    #main .keytext_top h2,
+    section h2 {
+        font-size: 14vw;
     }
 }
 @media only screen and (max-width:720px){
     body {
         font-size: 0.8125em;
     }
-    #main h2,
+    #main .keytext_top h2,
     section h2 {
-        font-size: 20vw;
+        font-size: 16vw;
     }
     #main .top {
         padding: 0 30px;
     }
-    #main .keytext {
-        bottom: 15vh;
-        padding: 0 30px;
+    #main .keytext_top {
+        left: 30px;
+    } 
+    #main .keytext_bottom {
+        right: 30px;
     }
     nav#gnb { 
         display: none;
@@ -215,7 +201,7 @@ section .sec-inner {
 }
 section h4 {
     font-size: 2em;
-    font-weight: 400;
+    font-weight: 600;
     position: relative;
 }
 section h4::after {
@@ -287,11 +273,11 @@ section h4::after {
     position: relative;
 }
 #skills .skill-swiper .swiper-slide .skill p {
-    font-family: "Antonio";
-    font-weight: 700;
+    font-weight: 500;
+    font-size: 0.875em;
 }
 #skills .skill-swiper .swiper-slide .skill p.category {
-    font-size: 1.875em;
+    font-size: 1.5em;
 }
 #skills .skill-swiper .swiper-slide .skill ul {
     display: flex;
@@ -313,7 +299,6 @@ section h4::after {
     padding-top: 2em;
     display: flex;
     flex-direction: column;
-    font-family: "Roboto", "Noto Sans KR";
 }
 #skills .skill-swiper .swiper-slide .desc span {
     font-size: 0.875em;
@@ -324,7 +309,7 @@ section h4::after {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
-    background-color: #e5e5e5;
+    background-color: #9995;
 }
 #skills .skill-swiper .swiper-scrollbar .swiper-scrollbar-drag {
     background-color: #727272;
@@ -357,7 +342,7 @@ section h4::after {
     }
 }
 #works {
-    overflow-x: hidden;
+    padding: 30vh 0 15vh 0;
 }
 #works.mobile {
     position: relative;
@@ -373,31 +358,72 @@ section h4::after {
 	background-size: contain;
     z-index: -1;
 }
-#works a {
-    display: block;
-    text-align: center;
-    padding: 30vh 0;
+#works a .works_title,
+#works a .works_title span.slide_up {
+    font-size: 20vw;
+    font-family: "Bebas Neue";
+    text-rendering: optimizeLegibility;
 }
-#works a span.hero {
-    font-size: 14vw;
+#works a .works_wrap {
+    width: fit-content;
+    margin: 0 auto;
+}
+#works a .works_wrap .inline {
+    overflow: hidden;
+}
+#works a .works_wrap .inline .works_title {
+    position: relative;
     color: #000;
 }
-.dark #works a span.hero {
-    color: #fff;
+.dark #works a .works_wrap .inline .works_title {
+    color: #E8E5E3;
+}
+#works a .works_wrap .inline .works_title span.slide-up {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    color: #E8E5E3;
+    text-align: center
+}
+.dark #works a .works_wrap .inline .works_title span.slide-up {
+    color: #000;
+}
+.dark #works a .works_wrap:hover .works_title span.slide-up {
+    transform: translateY(0);
+}
+#works a .works_wrap .works_title span.slide-up::before {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: attr(data-content);
+    color: #cb450c;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+}
+#works a .works_wrap:hover .works_title span.slide-up::before {
+    transform: translateY(0);
 }
 @media only screen and (max-width:1280px) {
-    #works a span.hero {
-        font-size: 16vw;
-    }
-}
-@media only screen and (max-width:940px){
-    #works a span.hero{
+    #works a .works_title,
+    .dark #works a .works_title span.slide_up {
         font-size: 18vw;
     }
 }
-@media only screen and (max-width:720px){
-    #works a span.hero {
+@media only screen and (max-width:940px){
+    #works a .works_title,
+    .dark #works a .works_title span.slide_up {
         font-size: 20vw;
+    }
+}
+@media only screen and (max-width:720px){
+    #works a .works_title,
+    .dark #works a .works_title span.slide_up {
+        font-size: 22vw;
     }
 }
 #contact { /**/
@@ -408,6 +434,7 @@ section h4::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: "Bebas Neue";
 }
 #contact .contact-top .contact-heading h2 {
     font-size: 8vw;
@@ -430,36 +457,67 @@ section h4::after {
     font-size: 4vw;
 }
 #contact .contact-bottom {
-    font-family: 'Antonio';
-    margin-top: 8em;
-}
-#contact .contact-bottom ul{
-    width: fit-content;
-}
-#contact .contact-bottom ul li a {
     display: flex;
-    gap: 14px;
-    line-height: 1.5;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8em;
+    font-family: "Bebas Neue";
 }
-#contact .contact-bottom ul li a span {
-    font-weight: 700;
-    font-size: 1.875em;
-}
-#contact .contact-bottom p.copyright {
-    position: absolute;
-    right: 6vw;
-    bottom: 8em;
+
+#contact .contact-bottom ul{
+    display: flex;
+    justify-content: center;
     width: fit-content;
-    color: #888;
+    gap: 20px;
 }
-.dark #contact .contact-top .contact-heading h2,
-.dark #contact .contact-top .information ul li span,
-.dark #contact .contact-top .information ul li p,
-.dark #contact .contact-bottom ul li a span {
-    color: #fff;
+#contact .contact-bottom ul li a.button {
+    display: inline-block;
+    font-family: "Roboto";
+    font-size: 1.125em;
+    padding: 5px 15px;
+    border: 1px solid #E8E5E3;
+    color: #E8E5E3;
+    border-radius: 30px;
+    transition: 0.3s;
 }
-.dark #contact .contact-bottom ul li a img {
-    filter: invert(100%);
+#contact .contact-bottom ul li a.button:hover {
+    background-color: #cb450c;
+    border: 1px solid #cb450c;
+    color: #000;
+}
+#contact .contact-bottom ul li a.button .link {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+}
+#contact .contact-bottom ul li a.button .link_inner {
+    display: flex;
+    transform: translateY(0);
+    transition: transform 0.3s cubic-bezier(.175,.885,.32,1.275) ;
+}
+#contact .contact-bottom ul li a.button:hover .link_inner {
+    transform: translateY(-100%);
+}
+#contact .contact-bottom ul li a.button .link_animated {
+    position: absolute;
+    top: 100%;
+    display: none;
+}
+#contact .contact-bottom ul li a.button:hover .link_animated {
+    display: inline-block;
+}
+
+#contact .contact-bottom p.copyright {
+    margin-top: 5em;
+    color: #999;
+}
+#contact .contact-top .contact-heading h2,
+#contact .contact-top .information ul li span,
+#contact .contact-top .information ul li p,
+#contact .contact-bottom ul li a span {
+    color: #E8E5E3;
 }
 @media only screen and (max-width:940px){
     #contact .contact-top .information ul li span {
@@ -482,25 +540,7 @@ section h4::after {
     #contact .contact-top .information {
         margin-top: 8em;
     }
-    #contact .contact-bottom {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    #contact .contact-bottom p.copyright {
-        position: static;
-        margin-top: 5em;
-    }
-    #contact .contact-bottom ul {
-        display: flex;
-        justify-content: center;
-    }
-    #contact .contact-bottom ul li {
-        padding: 0 10px;
-    }
-    #contact .contact-bottom ul li a img {
-        display: none;
-    }
+
 }
 .cursor {
 	position: absolute;
