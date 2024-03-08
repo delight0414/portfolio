@@ -5,17 +5,6 @@ body {
 body.dark {
     background-color: #000;
 }
-#main h2,
-section h2 {
-    font-family: "Bebas Neue";
-    font-size: 10vw;
-    line-height: 0.8;
-    letter-spacing: -2px;
-    font-weight: 400;
-}
-.dark section h2 a {
-    color: #fff;
-}
 #main {
     height: 100vh;
     position: relative;
@@ -107,7 +96,51 @@ nav#gnb ul li.active a {
     transform: translateY(-50%);
     word-break: keep-all;
 } 
-
+#main .text_wrap .inline .text_title,
+h2 {
+    font-family: "Bebas Neue";
+    font-size: 10vw;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    color: #000;
+    line-height: 0.9;
+}
+#main .text_wrap {
+    width: fit-content;
+}
+#main .text_wrap .inline {
+    overflow: hidden;
+}
+#main .text_wrap .inline .text_title span.slide-up {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    color: #000;
+    text-align: center
+}
+#main .text_wrap .inline .text_title span.slide-up {
+    color: #E8E5E3;
+}
+#main .text_wrap:hover .text_title span.slide-up {
+    transform: translateY(0);
+}
+#main .text_wrap .text_title span.slide-up::before {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: attr(data-content);
+    color: #cb450c;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+}
+#main .text_wrap:hover .text_title span.slide-up::before {
+    transform: translateY(0);
+}
 #main .keytext_bottom {
     position: absolute;
     right: 6vw;
@@ -155,8 +188,8 @@ nav#mobile ul li.active a {
     body {
         font-size: 0.975em;
     }
-    #main .keytext_top h2,
-    section h2 {
+    #main .text_wrap .inline .text_title,
+    h2 {
         font-size: 12vw;
     }
 }
@@ -164,24 +197,24 @@ nav#mobile ul li.active a {
     body {
         font-size: 0.875em;
     }
-    #main .keytext_top h2,
-    section h2 {
+    #main .text_wrap .inline .text_title,
+    h2 {
         font-size: 14vw;
-    }
+    } 
 }
 @media only screen and (max-width:720px){
     body {
         font-size: 0.8125em;
-    }
-    #main .keytext_top h2,
-    section h2 {
-        font-size: 16vw;
     }
     #main .top {
         padding: 0 30px;
     }
     #main .keytext_top {
         left: 30px;
+    }
+    #main .text_wrap .inline .text_title,
+    h2 {
+        font-size: 16vw;
     } 
     #main .keytext_bottom {
         right: 30px;
@@ -229,6 +262,7 @@ section h4::after {
     display: flex;
     justify-content: space-between;
     padding: 3em 0;
+
 }
 #about .about-desc .about-headline {
     display: flex;
@@ -236,23 +270,32 @@ section h4::after {
     white-space: nowrap;
 }
 #about .about-desc .about-headline strong {
-    font-size: 2.75em;
+    font-size: 2.5em;
     line-height: 1.5;
 }
 #about .about-desc .about-sub-text {
     width: 500px;
     padding-top: 20em;
+    overflow-y: hidden;
 }
 #about .about-desc .about-sub-text p {
     text-align: justify;
     line-height: 2;
 }
-@media only screen and (max-width:940px){
+@media only screen and (max-width:1280px){
     #about .about-desc .about-headline strong {
-        font-size: 2.5em;
+        font-size: 2.25em;
     }
     #about .about-desc .about-sub-text {
-        width: 300px;
+        width: 450px;
+    }
+}
+@media only screen and (max-width:940px){
+    #about .about-desc .about-headline strong {
+        font-size: 2.125em;
+    }
+    #about .about-desc .about-sub-text {
+        width: 400px;
     }
 }
 @media only screen and (max-width:720px){
@@ -344,41 +387,25 @@ section h4::after {
 #works {
     padding: 30vh 0 15vh 0;
 }
-#works.mobile {
-    position: relative;
-}
-#works.mobile::after {
-    position: absolute;
-    content: "";
-    top: 45%;
-    left: 15%;
-    width: 25em;
-	height: 13.125em;
-	background: url(../images/arrow.png) no-repeat center;
-	background-size: contain;
-    z-index: -1;
-}
-#works a .works_title,
-#works a .works_title span.slide_up {
+
+#works a .text_wrap .inline .text_title {
     font-size: 20vw;
     font-family: "Bebas Neue";
     text-rendering: optimizeLegibility;
-}
-#works a .works_wrap {
-    width: fit-content;
-    margin: 0 auto;
-}
-#works a .works_wrap .inline {
-    overflow: hidden;
-}
-#works a .works_wrap .inline .works_title {
     position: relative;
     color: #000;
 }
-.dark #works a .works_wrap .inline .works_title {
+#works a .text_wrap {
+    width: fit-content;
+    margin: 0 auto;
+}
+#works a .text_wrap .inline {
+    overflow: hidden;
+}
+.dark #works a .text_wrap .inline .text_title {
     color: #E8E5E3;
 }
-#works a .works_wrap .inline .works_title span.slide-up {
+#works a .text_wrap .inline .text_title span.slide-up {
     display: inline;
     position: absolute;
     top: 0;
@@ -389,13 +416,13 @@ section h4::after {
     color: #E8E5E3;
     text-align: center
 }
-.dark #works a .works_wrap .inline .works_title span.slide-up {
+.dark #works a .text_wrap .inline .text_title span.slide-up {
     color: #000;
 }
-.dark #works a .works_wrap:hover .works_title span.slide-up {
+.dark #works a .text_wrap:hover .text_title span.slide-up {
     transform: translateY(0);
 }
-#works a .works_wrap .works_title span.slide-up::before {
+.dark #works a .text_wrap .text_title span.slide-up::before {
     display: inline;
     position: absolute;
     top: 0;
@@ -405,39 +432,80 @@ section h4::after {
     transform: translateY(-100%);
     transition: transform 0.5s ease;
 }
-#works a .works_wrap:hover .works_title span.slide-up::before {
+.dark #works a .text_wrap:hover .text_title span.slide-up::before {
     transform: translateY(0);
 }
 @media only screen and (max-width:1280px) {
-    #works a .works_title,
-    .dark #works a .works_title span.slide_up {
+    #works a .text_title,
+    .dark #works a .text_title span.slide_up {
         font-size: 18vw;
     }
 }
 @media only screen and (max-width:940px){
-    #works a .works_title,
-    .dark #works a .works_title span.slide_up {
+    #works a .text_title,
+    .dark #works a .text_title span.slide_up {
         font-size: 20vw;
     }
 }
 @media only screen and (max-width:720px){
-    #works a .works_title,
-    .dark #works a .works_title span.slide_up {
+    #works a .text_title,
+    .dark #works a .text_title span.slide_up {
         font-size: 22vw;
     }
 }
 #contact { /**/
     position: relative;
     padding: 20vh 0 8em;
+    font-family: "Bebas Neue";
 }
 #contact .contact-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: "Bebas Neue";
 }
-#contact .contact-top .contact-heading h2 {
+
+#contact .text_wrap .inline .text_title {
     font-size: 8vw;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    color: #E8E5E3;
+}
+#contact .text_wrap {
+    width: fit-content;
+    margin: 0 auto;
+}
+#contact .text_wrap .inline {
+    overflow: hidden;
+}
+#contact .text_wrap .inline .text_title span.slide-up {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    color: #E8E5E3;
+    text-align: center
+}
+#contact .text_wrap .inline .text_title span.slide-up {
+    color: #000;
+}
+#contact .text_wrap:hover .text_title span.slide-up {
+    transform: translateY(0);
+}
+#contact .text_wrap .text_title span.slide-up::before {
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: attr(data-content);
+    color: #cb450c;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+}
+#contact .text_wrap:hover .text_title span.slide-up::before {
+    transform: translateY(0);
 }
 #contact .contact-top .information {
     white-space: nowrap;
@@ -483,7 +551,6 @@ section h4::after {
 #contact .contact-bottom ul li a.button:hover {
     background-color: #cb450c;
     border: 1px solid #cb450c;
-    color: #000;
 }
 #contact .contact-bottom ul li a.button .link {
     position: relative;
@@ -507,13 +574,13 @@ section h4::after {
 }
 #contact .contact-bottom ul li a.button:hover .link_animated {
     display: inline-block;
+    color: #000;
 }
 
 #contact .contact-bottom p.copyright {
     margin-top: 5em;
     color: #999;
 }
-#contact .contact-top .contact-heading h2,
 #contact .contact-top .information ul li span,
 #contact .contact-top .information ul li p,
 #contact .contact-bottom ul li a span {
@@ -531,7 +598,7 @@ section h4::after {
         justify-content: space-between;
         align-items: center;
     }
-    #contact .contact-top .contact-heading h2 {
+    #contact .text_wrap .inline .text_title {
         font-size: 12vw;
     }
     #contact .contact-top .information ul li p {

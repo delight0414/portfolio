@@ -1,6 +1,6 @@
 window.addEventListener("load", function(){
 	AOS.init({
-		easing: "ease-in-out-sine"
+		easing: "linear"
 	});
 
 	// let video=document.getElementById("title_video");
