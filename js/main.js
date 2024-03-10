@@ -104,7 +104,6 @@ window.addEventListener("load", function(){
 
 			if(window.innerHeight + t === document.body.scrollHeight){
 				n=4;
-
 				let contactText=document.querySelector("#contact .text_wrap");
 				setTimeout(function(){
 					contactText.classList.add("active");

@@ -59,7 +59,7 @@ body.dark {
 	transform: rotate(-45deg);
 }
 .dark #main a.tab span {
-	background-color: #fff;
+	background-color: #E8E5E3;
 }
 .dark #main h1 {
     color: #E8E5E3;
@@ -89,6 +89,79 @@ nav#gnb ul li.active a {
 .dark nav#gnb ul li.active a {
     color: #f90;
 }
+/* works_list */
+header.top {
+    /* position: fixed; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5em;
+    padding: 0 6vw;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+header.top h1 {
+    color: #E8E5E3;
+}
+header.top a.tab {
+	display: none;
+	position: relative;
+	width: 40px;
+	height: 25px;
+}
+header.top a.tab span {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 1px;
+	background-color: #E8E5E3;
+	transition: 0.3s;
+}
+header.top a.tab span:nth-child(1) {
+	width: 100%;
+}
+header.top a.tab span:nth-child(2) {
+	top: 10px;
+	width: 80%;
+}
+header.top a.tab span:nth-child(3) {
+	top: 20px;
+	width: 70%;
+}
+header.top a.tab.open span:nth-child(1) {
+	top: 10px;
+	width: 30px;
+	transform: rotate(45deg);
+}
+header.top a.tab.open span:nth-child(2) {
+	display: none;
+}
+header.top a.tab.open span:nth-child(3) {
+	top: 10px;
+	width: 30px;
+	transform: rotate(-45deg);
+}
+header.top nav#gnb ul {
+    display: flex;
+    margin: 0 auto;
+}
+header.top nav#gnb ul li {
+    padding: 0 1.125em;
+}
+header.top nav#gnb ul li a {
+    display: block;
+    line-height: 5em;
+    font-weight: 500;
+    color: #888;
+}
+header.top nav#gnb ul li:last-child{
+    padding-right: 0;
+}
+header.top nav#gnb ul li.active a {
+    color: #f90;
+}
+
 #main .keytext_top {
     position: absolute;
     left: 6vw;
@@ -187,6 +260,15 @@ nav#mobile ul li.active a {
 .dark nav#mobile ul li.active a {
     color: #cb450c;
 }
+header.top nav#mobile ul li a {
+    color: #666;
+}
+nav#mobile ul li.active a {
+    color: #000;
+}
+header.top nav#mobile ul li.active a {
+    color: #cb450c;
+}
 @media only screen and (max-width:1280px) {
     body {
         font-size: 0.975em;
@@ -225,6 +307,7 @@ nav#mobile ul li.active a {
     nav#gnb { 
         display: none;
     }
+    header.top a.tab,
     #main a.tab {
         display: block;
     }
@@ -549,6 +632,15 @@ section h4::after {
     width: fit-content;
     gap: 20px;
 }
+#works_list .more a.button {
+    display: inline-block;
+    font-family: "Roboto";
+    padding: 3px 20px;
+    border: 1px solid #E8E5E3;
+    color: #E8E5E3;
+    border-radius: 30px;
+    transition: 0.3s;
+}
 #contact .contact-bottom ul li a.button {
     display: inline-block;
     font-family: "Roboto";
@@ -559,10 +651,12 @@ section h4::after {
     border-radius: 30px;
     transition: 0.3s;
 }
+#works_list .more a.button:hover,
 #contact .contact-bottom ul li a.button:hover {
     background-color: #cb450c;
     border: 1px solid #cb450c;
 }
+#works_list .more a.button .link,
 #contact .contact-bottom ul li a.button .link {
     position: relative;
     z-index: 1;
@@ -570,24 +664,28 @@ section h4::after {
     align-items: center;
     overflow: hidden;
 }
+#works_list .more a.button .link_inner,
 #contact .contact-bottom ul li a.button .link_inner {
     display: flex;
     transform: translateY(0);
     transition: transform 0.3s cubic-bezier(.175,.885,.32,1.275) ;
 }
+#works_list .more a.button:hover .link_inner,
 #contact .contact-bottom ul li a.button:hover .link_inner {
     transform: translateY(-100%);
 }
+#works_list .more a.button .link_animated,
 #contact .contact-bottom ul li a.button .link_animated {
     position: absolute;
     top: 100%;
     display: none;
 }
+#works_list .more a.button:hover .link_animated,
 #contact .contact-bottom ul li a.button:hover .link_animated {
-    display: inline-block;
+    /* display: inline-block; */
+    display: flex;
     color: #000;
 }
-
 #contact .contact-bottom p.copyright {
     margin-top: 5em;
     color: #999;
@@ -634,4 +732,66 @@ section h4::after {
     position: fixed;
     right: 0;
     top: 0;
+}
+#works_list {
+    padding: 8em 0;
+}
+#works_list .sec_inner {
+    padding: 0 10vw;
+}
+#works_list h4 {
+    font-size: 2em;
+    font-weight: 600;
+    position: relative;
+    color: #fff;
+}
+#works_list h4::after {
+    position: absolute;
+    content: "";
+    left: -70px;
+    top: 50%;
+    width: 50px;
+    height: 1px;
+    background-color: #fff;
+}
+#works_list .title {
+    font-family: "Bebas Neue";
+}
+#works_list .title span.used_skill {
+    color: #555;
+}
+#works_list .title span.explain {
+    color: #fff;
+    font-size: 0.875em;
+}
+#works_list ul.list_wrap {
+    margin-top: 50px;
+}
+#works_list ul.list_wrap > li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #fff;
+}
+#works_list ul.list_wrap li .title {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+#works_list ul.list_wrap li .title h3 {
+    font-size: 3em;
+    color: #fff;
+    font-weight: 400;
+}
+#works_list ul.list_wrap li .more ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#works_list ul.list_wrap li .more ul span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
