@@ -3,14 +3,6 @@ window.addEventListener("load", function(){
 		easing: "linear"
 	});
 
-	// let video=document.getElementById("title_video");
-    // video.addEventListener("loadeddata", function(){
-    //     title_video.play();
-    // });
-    // video.addEventListener("ended", function(){
-    //     title_video.play(); 
-    // });
-
     const skillSwiper = new Swiper(".skillSwiper", {
     slidesPerView: 1,
     spaceBetween: 10,
@@ -53,6 +45,26 @@ window.addEventListener("load", function(){
 	}
     });
 
+	let keyText=document.querySelector("#main .keytext_top");
+
+	function keytextFill(){
+		setTimeout(function(){
+			keyText.children[0].classList.add("active");
+			setTimeout(function(){
+				keyText.children[1].classList.add("active");
+			}, 500);
+		}, 0);
+		
+		setTimeout(function(){
+			keyText.children[0].classList.remove("active");
+			setTimeout(function(){
+				keyText.children[1].classList.remove("active");
+			}, 500);
+		}, 2000);
+	};
+	
+	keytextFill();
+
 	let scrollT;
 	let sectionList=[];
 	sectionList[0]=document.getElementById("main");
@@ -75,7 +87,7 @@ window.addEventListener("load", function(){
 	let mobileList=mobileMenu.firstElementChild.children;
 
 	function scrollTrigger(){
-		let t=window.pageYOffset;
+		let t=window.scrollY;
 		let winh=window.innerHeight;
 
 		if(t < sectionList[1].offsetTop){
@@ -89,8 +101,17 @@ window.addEventListener("load", function(){
 		}
 		else if(t < sectionList[4].offsetTop){
 			n=3;
+
 			if(window.innerHeight + t === document.body.scrollHeight){
 				n=4;
+
+				let contactText=document.querySelector("#contact .text_wrap");
+				setTimeout(function(){
+					contactText.classList.add("active");
+					setTimeout(function(){
+						contactText.classList.remove("active");
+					}, 1000);
+				}, 0);
 			}
 		}
 		else {
@@ -99,6 +120,14 @@ window.addEventListener("load", function(){
 		if(t > sectionList[2].offsetTop + winh/2){
 			if(document.body.classList.contains("dark") == false){
 				document.body.classList.add("dark");
+
+					let worksText=document.querySelector("#works .text_wrap");
+					setTimeout(function(){
+						worksText.classList.add("active");
+						setTimeout(function(){
+							worksText.classList.remove("active");
+						}, 1000);
+					}, 10);
 			}
 		}
 		else {
@@ -121,6 +150,7 @@ window.addEventListener("load", function(){
 			}
 		}
 	};
+
 
 	scrollTrigger();
 
@@ -200,7 +230,5 @@ window.addEventListener("load", function(){
 	}
 	else {
 		document.querySelector(".cursor").style.display="none";
-		sectionList[3].classList.add("mobile");
 	}
-
 });

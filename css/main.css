@@ -118,14 +118,15 @@ h2 {
     left: 0;
     overflow: hidden;
     transform: translateY(100%);
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
     color: #000;
     text-align: center
 }
 #main .text_wrap .inline .text_title span.slide-up {
     color: #E8E5E3;
 }
-#main .text_wrap:hover .text_title span.slide-up {
+#main .text_wrap:hover .text_title span.slide-up,
+#main .text_wrap.active .text_title span.slide-up {
     transform: translateY(0);
 }
 #main .text_wrap .text_title span.slide-up::before {
@@ -136,9 +137,11 @@ h2 {
     content: attr(data-content);
     color: #cb450c;
     transform: translateY(-100%);
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
 }
-#main .text_wrap:hover .text_title span.slide-up::before {
+#main .text_wrap:hover .text_title span.slide-up::before,
+#main .text_wrap.active .text_title span.slide-up::before
+{
     transform: translateY(0);
 }
 #main .keytext_bottom {
@@ -199,7 +202,7 @@ nav#mobile ul li.active a {
     }
     #main .text_wrap .inline .text_title,
     h2 {
-        font-size: 14vw;
+        font-size: 16vw;
     } 
 }
 @media only screen and (max-width:720px){
@@ -214,7 +217,7 @@ nav#mobile ul li.active a {
     }
     #main .text_wrap .inline .text_title,
     h2 {
-        font-size: 16vw;
+        font-size: 18vw;
     } 
     #main .keytext_bottom {
         right: 30px;
@@ -387,7 +390,11 @@ section h4::after {
 #works {
     padding: 30vh 0 15vh 0;
 }
-
+#works a {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
 #works a .text_wrap .inline .text_title {
     font-size: 20vw;
     font-family: "Bebas Neue";
@@ -412,14 +419,15 @@ section h4::after {
     left: 0;
     overflow: hidden;
     transform: translateY(100%);
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
     color: #E8E5E3;
     text-align: center
 }
 .dark #works a .text_wrap .inline .text_title span.slide-up {
     color: #000;
 }
-.dark #works a .text_wrap:hover .text_title span.slide-up {
+.dark #works a .text_wrap:hover .text_title span.slide-up,
+.dark #works a .text_wrap.active .text_title span.slide-up {
     transform: translateY(0);
 }
 .dark #works a .text_wrap .text_title span.slide-up::before {
@@ -430,9 +438,10 @@ section h4::after {
     content: attr(data-content);
     color: #cb450c;
     transform: translateY(-100%);
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
 }
-.dark #works a .text_wrap:hover .text_title span.slide-up::before {
+.dark #works a .text_wrap:hover .text_title span.slide-up::before,
+.dark #works a .text_wrap.active .text_title span.slide-up::before {
     transform: translateY(0);
 }
 @media only screen and (max-width:1280px) {
@@ -484,13 +493,14 @@ section h4::after {
     left: 0;
     overflow: hidden;
     transform: translateY(100%);
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
     color: #E8E5E3;
     text-align: center
 }
 #contact .text_wrap .inline .text_title span.slide-up {
     color: #000;
 }
+#contact .text_wrap.active .text_title span.slide-up,
 #contact .text_wrap:hover .text_title span.slide-up {
     transform: translateY(0);
 }
@@ -502,8 +512,9 @@ section h4::after {
     content: attr(data-content);
     color: #cb450c;
     transform: translateY(-100%);
-    transition: transform 0.5s ease;
+    transition: transform 1s ease;
 }
+#contact .text_wrap.active .text_title span.slide-up::before,
 #contact .text_wrap:hover .text_title span.slide-up::before {
     transform: translateY(0);
 }
@@ -618,15 +629,9 @@ section h4::after {
 	border-radius: 50%;
 	user-select: none;
 	pointer-events: none;
-	transform: scale(1);
-	transition: transform 0.3s ease-in-out;
-    /* mix-blend-mode: excllusion; */
 }
-
-/* .cursor.active1 {
-	width: 28em;
-	height: 16.125em;
-	background: url(../images/arrow.png) no-repeat center;
-	background-size: contain;
-    mix-blend-mode: exclusion;
-} */
+.element {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
