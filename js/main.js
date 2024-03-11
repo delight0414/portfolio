@@ -6,8 +6,6 @@ window.addEventListener("load", function(){
 	const rellax=new Rellax(".rellax"); 
 		
 
-
-
     const skillSwiper = new Swiper(".skillSwiper", {
     slidesPerView: 1,
     spaceBetween: 10,

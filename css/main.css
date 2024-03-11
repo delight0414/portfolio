@@ -161,13 +161,12 @@ header.top nav#gnb ul li:last-child{
 header.top nav#gnb ul li.active a {
     color: #f90;
 }
-
 #main .keytext_top {
     position: absolute;
     left: 6vw;
     top: 50%;
     transform: translateY(-50%);
-    word-break: keep-all;
+    white-space: nowrap;
     font-family: "Bebas Neue";
 } 
 #main .text_wrap .inline .text_title {
@@ -222,19 +221,20 @@ header.top nav#gnb ul li.active a {
     transform: translateY(0);
 }
 .second span{
+    display: inline-block;
     color: #fff;
     font-size: 10vw;
     line-height: 0.8;
     padding-left: 0.1875em;
 }
 .marquee-snap {
-    height: 10vw;
+    height: 9vw;
     width: fit-content;
     overflow: hidden;
 }
 .marquee-snap .marquee_track-snap {
     width: 100%;
-    height: 100%;
+    height: 90%;
 }
 .marquee-snap .marquee_track-snap .marquee_item-snap {
     width: fit-content;
@@ -246,14 +246,14 @@ header.top nav#gnb ul li.active a {
     padding-top: 0;
     display: flex
 }
-h2 {
+.marquee-snap .marquee_track-snap .marquee_item-snap h2 {
     /* font-family: "Oranienbaum"; */
-    /* font-family: "Playfair Display"; */
-    font-family: "Source Serif 4";
-    /* font-style: italic; */
-    font-size: 8vw;
+    font-family: "Playfair";
+    /* font-family: "Source Serif 4"; */
+    font-size: 9vw;
     text-rendering: optimizeLegibility;
     font-weight: 400;
+    line-height: 0.8;
     color: #000;
 }
 #main .keytext_bottom {
@@ -313,11 +313,14 @@ header.top nav#mobile ul li.active a {
         font-size: 0.975em;
     }
     .marquee-snap {
-        height: 14vw;
+        height: 12vw;
     }
     #main .text_wrap .inline .text_title,
-    h2 {
-        font-size: 14vw;
+    .second span {
+        font-size: 12vw;
+    }
+    .marquee-snap .marquee_track-snap .marquee_item-snap h2 {
+        font-size: 11vw;
     }
 }
 @media only screen and (max-width:940px){
@@ -327,10 +330,20 @@ header.top nav#mobile ul li.active a {
     .marquee-snap {
         height: 18vw;
     }
+    #main .keytext_top .wrap {
+        display: flex;
+        flex-direction: column;
+        /* align-items: flex-end; */
+        align-items: flex-start;
+    }
     #main .text_wrap .inline .text_title,
-    h2 {
+    .second span {
         font-size: 18vw;
+        padding: 0;
     } 
+    .marquee-snap .marquee_track-snap .marquee_item-snap h2 {
+        font-size: 17vw;
+    }
 }
 @media only screen and (max-width:720px){
     body {
@@ -342,6 +355,7 @@ header.top nav#mobile ul li.active a {
     #main .keytext_top {
         left: 30px;
     }
+
     .marquee-snap {
         height: 20vw;
     }
@@ -349,6 +363,9 @@ header.top nav#mobile ul li.active a {
     h2 {
         font-size: 20vw;
     } 
+    .marquee-snap .marquee_track-snap .marquee_item-snap h2 {
+        font-size: 19vw;
+    }
     #main .keytext_bottom {
         right: 30px;
     }
