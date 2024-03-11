@@ -3,6 +3,11 @@ window.addEventListener("load", function(){
 		easing: "linear"
 	});
 
+	const rellax=new Rellax(".rellax"); 
+		
+
+
+
     const skillSwiper = new Swiper(".skillSwiper", {
     slidesPerView: 1,
     spaceBetween: 10,
@@ -63,7 +68,21 @@ window.addEventListener("load", function(){
 		}, 2000);
 	};
 	
-	keytextFill();
+	// keytextFill();
+
+	document.querySelectorAll(".marquee-snap").forEach(function(element) {
+		let track = element.querySelector(".marquee_track-snap");
+		let items = element.querySelectorAll(".marquee_item-snap");
+		let tl = gsap.timeline({ repeat: -1, defaults: { ease: "expo.inOut", duration: 1, delay: 1 } });
+	
+		items.forEach(function(item, index) {
+		  let distance = (index + 1) * -100;
+			tl.to(track, { yPercent: distance });
+		});
+	
+		let clonedItem = items[0].cloneNode(true);
+		track.appendChild(clonedItem);
+		});
 
 	let scrollT;
 	let sectionList=[];
