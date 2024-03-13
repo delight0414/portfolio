@@ -1,10 +1,7 @@
 window.addEventListener("load", function(){
 	AOS.init({
-		easing: "linear"
+		easing: "Linear"
 	});
-
-	const rellax=new Rellax(".rellax"); 
-		
 
     const skillSwiper = new Swiper(".skillSwiper", {
     slidesPerView: 1,
@@ -48,40 +45,88 @@ window.addEventListener("load", function(){
 	}
     });
 
-	let keyText=document.querySelector("#main .keytext_top");
+	let track=document.querySelector(".marquee_track-snap");
+	let items=document.querySelectorAll(".marquee_item-snap");
+	let tl=gsap.timeline({ repeat: -1, defaults: { ease: "expo.inOut", duration: 1, delay: 1 } });
 
-	function keytextFill(){
-		setTimeout(function(){
-			keyText.children[0].classList.add("active");
-			setTimeout(function(){
-				keyText.children[1].classList.add("active");
-			}, 500);
-		}, 0);
-		
-		setTimeout(function(){
-			keyText.children[0].classList.remove("active");
-			setTimeout(function(){
-				keyText.children[1].classList.remove("active");
-			}, 500);
-		}, 2000);
-	};
-	
-	// keytextFill();
+	for(let i=0; i<items.length; i++){
+		let distance=(i+1) * -100;
+		tl.to(track, {yPercent: distance});
+	}
 
-	document.querySelectorAll(".marquee-snap").forEach(function(element) {
-		let track = element.querySelector(".marquee_track-snap");
-		let items = element.querySelectorAll(".marquee_item-snap");
-		let tl = gsap.timeline({ repeat: -1, defaults: { ease: "expo.inOut", duration: 1, delay: 1 } });
-	
-		items.forEach(function(item, index) {
-		  let distance = (index + 1) * -100;
-			tl.to(track, { yPercent: distance });
-		});
-	
-		let clonedItem = items[0].cloneNode(true);
+	let clonedItem = items[0].cloneNode(true);
 		track.appendChild(clonedItem);
-		});
+////
 
+
+function randomText(str, dom){
+	let fake="1234567890!@#$%^&?"; // you can customize what letters it will cycle through
+	let text=str; // your text
+	let speed=40;
+	let increment= 2; // frames per step. must be 2
+
+	let length=text.length;
+	let si=0;
+	let stri=0;
+	let block="";
+	let fixed="";
+
+	// call self x times, whole function wrapped in setTimeout
+	(function rustle(i){
+		setTimeout(function(){
+			if(--i){
+				rustle(i);
+			}
+			nextFrame(i);
+			si=si+1;
+		}, speed);
+
+	})(length*increment+1);
+
+	function nextFrame(pos){
+		for(let i=0; i<length-stri; i++){
+			let num=Math.floor(fake.length * Math.random()); // random number
+			let letter=fake.charAt(num); // get random letter
+			block=block+letter;
+		}
+
+		if(si == (increment-1)){
+			stri++;
+		}
+
+		if(si == increment){
+			// add a letter, every speed*10 ms
+			fixed=fixed+text.charAt(stri-1);
+			si=0;
+		}
+
+		dom.innerHTML=fixed+block;
+
+		block="";
+	}
+}
+
+let randomFlag=false;
+
+function randomTextApplication(){
+	if(randomFlag) return;
+
+	randomFlag=true;
+
+	randomText("어려운 것을 쉽게,", dom[0]);
+
+	setTimeout(function(){
+		randomText("쉬운 것을 깊게,", dom[1]);
+	}, 1000);
+
+	setTimeout(function(){
+		randomText("깊은 것을 유쾌하게!", dom[2]);
+	}, 2000);
+}
+
+let dom=document.querySelectorAll(".about-headline strong");
+
+////
 	let scrollT;
 	let sectionList=[];
 	sectionList[0]=document.getElementById("main");
@@ -94,7 +139,6 @@ window.addEventListener("load", function(){
 		sectionList.push(section[i]);
 	}
 
-
 	let t=0;
 	let n=0;
 	let targety=0;
@@ -102,6 +146,47 @@ window.addEventListener("load", function(){
 	let mobileTab=document.querySelector("#main a.tab");
 	let mobileMenu=document.querySelector("nav#mobile");
 	let mobileList=mobileMenu.firstElementChild.children;
+
+	let worksFlag=false;
+
+	function worksTextApplication(){
+		if(worksFlag) return;
+
+		worksFlag = true;
+			
+			let worksText=document.querySelector("#works .text_wrap");
+			worksText.classList.add("active");
+
+			setTimeout(function(){
+				worksText.classList.remove( "active");
+			}, 1000);
+	}
+
+	// function worksTextHover(){
+	// 	let contactText=document.querySelector("#works .text_wrap");
+	// 	contactText.addEventListener("mouseenter", function(e){
+	// 		e.currentTarget.classList.add("active");
+	// 		console.log("mouseenter");
+	// 	});
+	// 	contactText.addEventListener("mouseleave", function(e){
+	// 		e.currentTarget.classList.remove("active");
+	// 	});
+	// }
+
+	let contactFlag=false;
+
+	function contactTextApplication(){
+		if(contactFlag) return;
+
+		contactFlag = true;
+	
+		let contactText=document.querySelector("#contact .text_wrap");
+		contactText.classList.add("active");
+
+		setTimeout(function(){
+			contactText.classList.remove("active");
+		}, 1000);
+	}
 
 	function scrollTrigger(){
 		let t=window.scrollY;
@@ -119,31 +204,22 @@ window.addEventListener("load", function(){
 		else if(t < sectionList[4].offsetTop){
 			n=3;
 
+			worksTextApplication();
+			
 			if(window.innerHeight + t === document.body.scrollHeight){
 				n=4;
-				let contactText=document.querySelector("#contact .text_wrap");
-				setTimeout(function(){
-					contactText.classList.add("active");
-					setTimeout(function(){
-						contactText.classList.remove("active");
-					}, 1000);
-				}, 0);
+				contactTextApplication();
 			}
 		}
 		else {
 			n=4;
 		}
+		if(t > sectionList[0].offsetTop + winh/2){
+			randomTextApplication();
+		}
 		if(t > sectionList[2].offsetTop + winh/2){
 			if(document.body.classList.contains("dark") == false){
 				document.body.classList.add("dark");
-
-					let worksText=document.querySelector("#works .text_wrap");
-					setTimeout(function(){
-						worksText.classList.add("active");
-						setTimeout(function(){
-							worksText.classList.remove("active");
-						}, 1000);
-					}, 10);
 			}
 		}
 		else {

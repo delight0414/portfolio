@@ -91,7 +91,7 @@ nav#gnb ul li.active a {
 }
 /* works_list */
 header.top {
-    /* position: fixed; */
+    position: fixed;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -175,7 +175,7 @@ header.top nav#gnb ul li.active a {
     position: relative;
     color: #000;
     font-weight: 400;
-    line-height: 0.8;
+    line-height: 0.9;
 }
 #main .keytext_top .wrap {
     display: flex;
@@ -194,7 +194,7 @@ header.top nav#gnb ul li.active a {
     left: 0;
     overflow: hidden;
     transform: translateY(100%);
-    transition: transform 1s ease;
+    transition: transform 0.3s ease;
     color: #000;
     text-align: center;
 }
@@ -213,7 +213,7 @@ header.top nav#gnb ul li.active a {
     content: attr(data-content);
     color: #cb450c;
     transform: translateY(-100%);
-    transition: transform 1s ease;
+    transition: transform 0.3s ease;
 }
 #main .text_wrap:hover .text_title span.slide-up::before,
 #main .text_wrap.active .text_title span.slide-up::before
@@ -224,11 +224,12 @@ header.top nav#gnb ul li.active a {
     display: inline-block;
     color: #fff;
     font-size: 10vw;
-    line-height: 0.8;
+    line-height: 0.9;
     padding-left: 0.1875em;
 }
 .marquee-snap {
-    height: 9vw;
+    margin-top: -8px;
+	height: calc(9vw + 12px);
     width: fit-content;
     overflow: hidden;
 }
@@ -237,19 +238,16 @@ header.top nav#gnb ul li.active a {
     height: 90%;
 }
 .marquee-snap .marquee_track-snap .marquee_item-snap {
-    width: fit-content;
-    height: 100%;
-    text-align: left;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    width: fit-content;
     align-items: center;
-    padding-top: 0;
-    display: flex
+    height: 100%;
+    text-align: left;
 }
 .marquee-snap .marquee_track-snap .marquee_item-snap h2 {
-    /* font-family: "Oranienbaum"; */
     font-family: "Playfair";
-    /* font-family: "Source Serif 4"; */
     font-size: 9vw;
     text-rendering: optimizeLegibility;
     font-weight: 400;
@@ -376,6 +374,12 @@ header.top nav#mobile ul li.active a {
     #main a.tab {
         display: block;
     }
+    #main .keytext_bottom {
+        left: 6vw;
+        right: 0;
+        bottom: 5vh;
+        text-align: left;
+    }
 }
 section {
     padding: 8em 0;
@@ -384,11 +388,12 @@ section .sec-inner {
     padding: 0 10vw;
 }
 section h4 {
+    display: inline-block;
     font-size: 2em;
     font-weight: 600;
-    position: relative;
+    /* position: relative; */
 }
-section h4::after {
+/* section h4::after {
     position: absolute;
     content: "";
     left: -70px;
@@ -396,10 +401,9 @@ section h4::after {
     width: 50px;
     height: 1px;
     background-color: #000;
-}
+} */
 .dark section h4 {
     color: #fff;
-
 }
 .dark section h4::after {
     background-color: #fff;
@@ -415,49 +419,36 @@ section h4::after {
 }
 #about .about-desc {
     display: flex;
-    justify-content: flex-start;
-    padding: 3em 0;
+    justify-content: space-around;
+    margin-top: 5em;
 
 }
 #about .about-desc .about-headline {
     display: flex;
     flex-direction: column;
     white-space: nowrap;
+    width: 30vw;
 }
 #about .about-desc .about-headline strong {
     font-size: 2.5em;
     line-height: 1.5;
 }
 #about .about-desc .about-sub-text {
-    width: 500px;
-    padding-top: 20em;
+    width: 30vw;
     overflow-y: hidden;
 }
 #about .about-desc .about-sub-text p {
     text-align: justify;
     line-height: 2;
 }
-#about .element_wrap {
-    position: absolute;
-    right: 5%;
-    top: 50%;
-    display: flex;
-    z-index: -1;
-}
 @media only screen and (max-width:1280px){
     #about .about-desc .about-headline strong {
         font-size: 2.25em;
-    }
-    #about .about-desc .about-sub-text {
-        width: 450px;
     }
 }
 @media only screen and (max-width:940px){
     #about .about-desc .about-headline strong {
         font-size: 2.125em;
-    }
-    #about .about-desc .about-sub-text {
-        width: 400px;
     }
 }
 @media only screen and (max-width:720px){
@@ -466,7 +457,11 @@ section h4::after {
     }
     #about .about-desc .about-sub-text {
         width: auto;
-        padding-top: 5em;
+        padding-top: 3em;
+    }
+    #about .about-desc .about-headline {
+        width: auto;
+        height: 20vh;
     }
 }
 #skills .skill-swiper {
@@ -712,8 +707,8 @@ section h4::after {
     display: inline-block;
     font-family: "Roboto";
     padding: 3px 20px;
-    border: 1px solid #E8E5E3;
-    color: #E8E5E3;
+    border: 1px solid #000;
+    color: #000;
     border-radius: 30px;
     transition: 0.3s;
 }
@@ -804,14 +799,6 @@ section h4::after {
 	user-select: none;
 	pointer-events: none;
 }
-.element {
-    position: fixed;
-    right: 0;
-    top: 0;
-}
-#works_list {
-    padding: 8em 0;
-}
 #works_list .sec_inner {
     padding: 0 10vw;
 }
@@ -819,16 +806,10 @@ section h4::after {
     font-size: 2em;
     font-weight: 600;
     position: relative;
-    color: #fff;
+    color: #000;
 }
-#works_list h4::after {
-    position: absolute;
-    content: "";
-    left: -70px;
-    top: 50%;
-    width: 50px;
-    height: 1px;
-    background-color: #fff;
+#works_list h2 {
+    font-size: 3em;
 }
 #works_list .title {
     font-family: "Bebas Neue";
@@ -837,37 +818,7 @@ section h4::after {
     color: #555;
 }
 #works_list .title span.explain {
-    color: #fff;
+    color: #000;
     font-size: 0.875em;
 }
-#works_list ul.list_wrap {
-    margin-top: 50px;
-}
-#works_list ul.list_wrap > li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #fff;
-}
-#works_list ul.list_wrap li .title {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-}
-#works_list ul.list_wrap li .title h3 {
-    font-size: 3em;
-    color: #fff;
-    font-weight: 400;
-}
-#works_list ul.list_wrap li .more ul {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-#works_list ul.list_wrap li .more ul span {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
+

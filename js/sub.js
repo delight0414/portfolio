@@ -1,5 +1,5 @@
 window.addEventListener("load", function(){
-    document.body.style.background="#000";
+    // document.body.style.background="#000";
     let cursor=document.querySelector(".cursor");
 	let gnbLi=document.querySelectorAll("#gnb > ul > li");
 
