@@ -5,157 +5,224 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+<script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
 <style>
+:root {
+  --dark: #1d1d1d;
+  --grey-dark: #414141;
+  --light: #fff;
+  --mid: #ededed;
+  --grey: #989898;
+  --gray: #989898;
+  --green: #28a92b;
+  --green-dark: #4e9815;
+  --green-light: #6fb936;
+  --blue: #2c7ad2;
+  --purple: #8d3dae;
+  --red: #c82736;
+  --orange: #e77614;
+  accent-color: var(--green);
+}
 body {
-	font-family: "Bebas Neue", "Noto Sans KR", sans-serif;
-	font-size: 1em;
-	overflow-x: hidden;
+  background-color: #111;
+  font-family: "Signika Negative", sans-serif, Arial;
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
-body, h1, h2, h3, h4, h5, h6, p, ul, ol, table, dl, dd {
-	margin: 0;
-	padding: 0;
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-h1 {
-	font-size: 16px;
+
+
+#smooth-content {
+  overflow: visible;
+  width: 100%;
+  /* set a height because the contents are position: absolute, thus natively there's no height */
+  height: 4000px;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255,255,255,.07) 2px, transparent 2px),
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
-a {
-	text-decoration: none;
-	color: #000;
+
+button {
+  position: relative; 
 }
-ul, ol {
-	list-style: none;
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #28a92b;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  line-height: 100px;
+  font-size: 50px;
+  text-align: center;
+  will-change: transform;
 }
-img {
-	max-width: 100%;
-	vertical-align: top;
-	border: none;
+.box.active {
+  background-color: red;
 }
-.marquee-snap {
-    height: 10vw;
-    width: fit-content;
-    overflow: hidden;
+
+.box-a {
+  top: 200px;
+  background-color: #8d3dae;
 }
-.marquee-snap .marquee_track-snap {
-    width: 100%;
-    height: 100%;
+
+.box-b {
+  top: 600px;
 }
-.marquee-snap .marquee_track-snap .marquee_item-snap {
-    width: fit-content;
-    height: 100%;
-    text-align: left;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 0;
-    display: flex
+
+.box-c {
+  top: 1000px;
+  background-color: #e26c16;
+  will-change: transform;
 }
-.marquee-snap .marquee_track-snap .marquee_item-snap .marquee_text {
-    font-family: "Bebas Neue";
-    font-size: 10vw;
-    text-rendering: optimizeLegibility;
-    position: relative;
-    color: #000;
-    line-height: 0.9;
+
+.line {
+  visibility: hidden;
+  width: 2px;
+  height: 4000px;
+  position: absolute;
+  left: 400px;
+  top: 0px;
+  background-color: #777;
 }
-@media only screen and (max-width:1280px) {
-    body {
-        font-size: 0.975em;
-    }
-    .marquee-snap {
-        height: 12vw;
-    }
-    #main .text_wrap .inline .text_title,
-    h2 {
-        font-size: 12vw;
-    }
+
+header .name {
+  color: white;
 }
-@media only screen and (max-width:940px){
-    body {
-        font-size: 0.875em;
-    }
-    .marquee-snap {
-        height: 16vw;
-    }
-    #main .text_wrap .inline .text_title,
-    h2 {
-        font-size: 16vw;
-    } 
+
+.title {
+  text-align: center;
+  color: white;
+  font-weight: 400;
+  font-size: 40px;
 }
-@media only screen and (max-width:720px){
-    body {
-        font-size: 0.8125em;
-    }
-    #main .top {
-        padding: 0 30px;
-    }
-    #main .keytext_top {
-        left: 30px;
-    }
-    #main .text_wrap .inline .text_title,
-    h2 {
-        font-size: 18vw;
-    } 
-    .marquee-snap {
-        height: 18vw;
-    }
-    #main .keytext_bottom {
-        right: 30px;
-    }
-    nav#gnb { 
-        display: none;
-    }
-    header.top a.tab,
-    #main a.tab {
-        display: block;
-    }
+footer {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  padding: 6px 10px 10px 12px;
+  border-top-left-radius: 26px;
+  z-index: 100;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.end {
+  position: absolute;
+  /*   bottom: 0; */
+  top: 2400px;
+  transform: translateY(-100%);
+  font-size: 30px;
+  color: white;
+}
+
+/* button:not('.box') { breaking for some reason in codepen? */
+button {
+  display: inline-block;
+  outline: none;
+  border: none;
+  padding: 8px 14px;
+  background: var(--light);
+  background-image: linear-gradient(to bottom, hsl(0deg 0% 100%), hsl(0deg 0% 94%));
+  -webkit-box-shadow: 0px 1px 0px #414141;
+  -moz-box-shadow: 0px 1px 0px #414141;
+  box-shadow: 0px 1px 0px #414141;
+  color: var(--dark);
+  text-decoration: none;
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  padding: 12px 25px;
+  font-family: "Signika Negative", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 18px;
+}
+
+.light button {
+    color: var(--light);
+    background-image: linear-gradient(to bottom, #575757, #414141);
+}
+
+button:hover {
+  background: var(--green-light);
+  background-image: linear-gradient(to bottom, #57a818, #4d9916);
+  -webkit-box-shadow: 0px 1px 0px fefefe;
+  -moz-box-shadow: 0px 1px 0px fefefe;
+  box-shadow: 0px 1px 0px fefefe;
+  color: #ffffff;
+  text-decoration: none;
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollToPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@terwanerik/scrolltrigger@1.0.5/dist/ScrollTrigger.min.js"></script>
 <script>
-window.addEventListener("load", function(){
-    document.querySelectorAll(".marquee-snap").forEach(function(element) {
-    let track = element.querySelector(".marquee_track-snap");
-    let items = element.querySelectorAll(".marquee_item-snap");
-    let tl = gsap.timeline({ repeat: -1, defaults: { ease: "expo.inOut", duration: 1, delay: 1 } });
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-    items.forEach(function(item, index) {
-      let distance = (index + 1) * -100;
-        tl.to(track, { yPercent: distance });
-    });
+ScrollTrigger.normalizeScroll(true)
 
-    let clonedItem = items[0].cloneNode(true);
-    track.appendChild(clonedItem);
-    });
+// create the smooth scroller FIRST!
+let smoother = ScrollSmoother.create({
+  smooth: 2,
+  effects: true,
+  normalizeScroll: true
+});
+
+// pin box-c when it reaches the center of the viewport, for 300px
+ScrollTrigger.create({
+  trigger: ".box-c",
+  pin: true,
+  start: "center center",
+  end: "+=300",
+  markers: true
+});
+
+document.querySelector("button").addEventListener("click", e => {
+  // scroll to the spot where .box-c is in the center.
+  // parameters: element, smooth, position
+  smoother.scrollTo(".box-c", true, "center center");
+  
+  // or you could animate the scrollTop:
+  // gsap.to(smoother, {
+  //  scrollTop: smoother.offset(".box-c", "center center"),
+  //  duration: 1
+  // });
 });
 
 </script>
 </head>
 
 <body>
-<div class="wrapper">
-    <div class="marquee-snap">
-        <div class="marquee_track-snap">
-            <div class="marquee_item-snap">
-                <h2 class="marquee_text">HTML</h2>
-            </div>
-            <div class="marquee_item-snap">
-                <h2 class="marquee_text">CSS</h2>
-            </div>
-            <div class="marquee_item-snap">
-                <h2 class="marquee_text">jQuery</h2>
-            </div>
-            <div class="marquee_item-snap">
-                <h2 class="marquee_text">Javascript</h2>
-            </div>
-            <div class="marquee_item-snap">
-                <h2 class="marquee_text">React</h2>
-            </div>
-            <div class="marquee_item-snap">
-                <h2 class="marquee_text">Node.js</h2>
-            </div>
-        </div>
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <header class="header">
+        <h1 class="title">ScrollSmoother</h1>
+        <button class="button">Jump to C</button>
+      </header>
+      <div class="box box-a" data-speed="clamp(0.5)">a</div>
+      <div class="box box-b" data-speed="clamp(0.8)">b</div>
+      <div class="box box-c" data-speed="1.5">c</div>
+      <div class="line"></div>
     </div>
-</div>
+  </div>
 </body>
 </html>

@@ -44,6 +44,32 @@ window.addEventListener("load", function(){
 		}
 	}
     });
+	let mainTextFlag=false;
+
+	function mainTextApplication(){
+		if(mainTextFlag) return;
+
+		mainTextFlag = true;
+			
+			let mainText=document.querySelectorAll("#main .text_wrap");
+
+			setTimeout(function(){
+				mainText[0].classList.add("active");
+			}, 0)
+			setTimeout(function(){
+				mainText[1].classList.add("active");
+			},1000)
+			
+
+			setTimeout(function(){
+				mainText[0].classList.remove("active");
+			}, 1000)
+			setTimeout(function(){
+				mainText[1].classList.remove("active");
+			},2000)
+	}
+
+	mainTextApplication();
 
 	let track=document.querySelector(".marquee_track-snap");
 	let items=document.querySelectorAll(".marquee_item-snap");
@@ -58,11 +84,10 @@ window.addEventListener("load", function(){
 		track.appendChild(clonedItem);
 ////
 
-
 function randomText(str, dom){
-	let fake="1234567890!@#$%^&?"; // you can customize what letters it will cycle through
+	let fake="A!@<>"; // you can customize what letters it will cycle through
 	let text=str; // your text
-	let speed=40;
+	let speed=60;
 	let increment= 2; // frames per step. must be 2
 
 	let length=text.length;
@@ -162,16 +187,28 @@ let dom=document.querySelectorAll(".about-headline strong");
 			}, 1000);
 	}
 
-	// function worksTextHover(){
-	// 	let contactText=document.querySelector("#works .text_wrap");
-	// 	contactText.addEventListener("mouseenter", function(e){
-	// 		e.currentTarget.classList.add("active");
-	// 		console.log("mouseenter");
-	// 	});
-	// 	contactText.addEventListener("mouseleave", function(e){
-	// 		e.currentTarget.classList.remove("active");
-	// 	});
-	// }
+	function worksTextHover(){
+		let worksText=document.querySelector("#works .text_wrap");
+		worksText.addEventListener("mouseenter", function(e){
+			e.currentTarget.classList.add("active");
+			console.log("mouseenter");
+		});
+		worksText.addEventListener("mouseleave", function(e){
+			e.currentTarget.classList.remove("active");
+		});
+	}
+
+	function contactTextHover(){
+		let contactText=document.querySelector("#contact .text_wrap");
+		let contactTextWrapper=document.querySelector("#contact .contact-top")
+		contactTextWrapper.addEventListener("mouseenter", function(){
+			contactText.classList.add("active");
+			console.log("mouseenter");
+		});
+		contactTextWrapper.addEventListener("mouseleave", function(){
+			contactText.classList.remove("active");
+		});
+	}
 
 	let contactFlag=false;
 
@@ -203,16 +240,17 @@ let dom=document.querySelectorAll(".about-headline strong");
 		}
 		else if(t < sectionList[4].offsetTop){
 			n=3;
-
 			worksTextApplication();
-			
+			worksTextHover();
 			if(window.innerHeight + t === document.body.scrollHeight){
 				n=4;
+				contactTextHover();
 				contactTextApplication();
 			}
 		}
 		else {
 			n=4;
+			contactTextHover();
 		}
 		if(t > sectionList[0].offsetTop + winh/2){
 			randomTextApplication();
@@ -306,7 +344,7 @@ let dom=document.querySelectorAll(".about-headline strong");
 
 	if(!isMobile){
 		document.body.addEventListener("mousemove", function(e){
-			gsap.to(cursor, {duration: 0.4, left: e.pageX-5, top: e.pageY-5});
+			gsap.to(cursor, {duration: 0.2, left: e.pageX, top: e.pageY});
 		});
 
 		sectionList[3].addEventListener("mouseenter", function(){;

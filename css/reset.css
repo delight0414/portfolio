@@ -21,6 +21,7 @@ body {
 	font-family: "Roboto" , "Bebas Neue", "Noto Sans KR", sans-serif, "Playfair", "Oranienbaum", serif;
 	font-size: 1em;
 	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
 body.stop-scrolling {
 	height: 100%;
