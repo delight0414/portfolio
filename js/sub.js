@@ -1,5 +1,11 @@
 window.addEventListener("load", function(){
-    // document.body.style.background="#000";
+
+	var swiper = new Swiper(".openSwiper", {
+		slidesPerView: 3.5,
+		spaceBetween: 30,
+		grabCursor: true
+	});
+
     let cursor=document.querySelector(".cursor");
 	let gnbLi=document.querySelectorAll("#gnb > ul > li");
 
@@ -58,12 +64,18 @@ window.addEventListener("load", function(){
 
 	window.addEventListener("resize", resizeTrigger);
 
-	if(!isMobile){
-		document.body.addEventListener("mousemove", function(e){
-			gsap.to(cursor, {duration: 0.4, left: e.pageX-5, top: e.pageY-5});
+	let projectList=document.querySelectorAll("ul.project > li");
+
+	for(let i=0; i<projectList.length; i++){
+		let projectImage=projectList[i].lastElementChild;
+		projectList[i].addEventListener("mouseenter", function(){
+			gsap.fromTo(projectImage, {display:"block", x:0}, {x:0, duration:0.9})
+		});
+		projectList[i].addEventListener("mouseleave", function(){
+			gsap.to(projectImage, {x:0, duration:0, onComplete: function(){
+				projectImage.removeAttribute("style");
+			}})
 		});
 	}
-	else {
-		document.querySelector(".cursor").style.display="none";
-	}
+
 });

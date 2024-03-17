@@ -1,6 +1,6 @@
 body {
     transition: 0.3s;
-    background-color: #FBFCF6;
+    background: #FBFCF6;
 }
 body.dark {
     background-color: #000;
@@ -617,6 +617,7 @@ section h4 {
     position: relative;
     padding: 20vh 0 8em;
     font-family: "Bebas Neue";
+    background-color: #000;
 }
 #contact .contact-top {
     display: flex;
@@ -694,24 +695,24 @@ section h4 {
     margin-top: 8em;
     font-family: "Bebas Neue";
 }
-
-#contact .contact-bottom ul{
+#contact .contact-bottom ul {
     display: flex;
     justify-content: center;
     width: fit-content;
     gap: 20px;
 }
-#works_list .more a.button {
+.works_list ul.more a.button {
     display: inline-block;
     font-family: "Roboto";
+    font-size: 0.875em;
     padding: 3px 20px;
-    border: 1px solid #000;
-    color: #000;
+    border: 1px solid #555;
+    color: #555;
     border-radius: 30px;
     transition: 0.3s;
+    text-align: center;
 }
 #contact .contact-bottom ul li a.button {
-    display: inline-block;
     font-family: "Roboto";
     font-size: 1.125em;
     padding: 5px 15px;
@@ -720,12 +721,12 @@ section h4 {
     border-radius: 30px;
     transition: 0.3s;
 }
-#works_list .more a.button:hover,
+.works_list ul.more a.button:hover,
 #contact .contact-bottom ul li a.button:hover {
     background-color: #B2DB33;
     border: 1px solid #B2DB33;
 }
-#works_list .more a.button .link,
+.works_list ul.more a.button .link,
 #contact .contact-bottom ul li a.button .link {
     position: relative;
     z-index: 1;
@@ -733,30 +734,32 @@ section h4 {
     align-items: center;
     overflow: hidden;
 }
-#works_list .more a.button .link_inner,
+.works_list ul.more a.button .link_inner,
 #contact .contact-bottom ul li a.button .link_inner {
     display: flex;
     transform: translateY(0);
     transition: transform 0.3s cubic-bezier(.175,.885,.32,1.275) ;
 }
-#works_list .more a.button:hover .link_inner,
+.works_list ul.more a.button:hover .link_inner,
 #contact .contact-bottom ul li a.button:hover .link_inner {
     transform: translateY(-100%);
 }
-#works_list .more a.button .link_animated,
+.works_list ul.more a.button .link_animated,
 #contact .contact-bottom ul li a.button .link_animated {
     position: absolute;
     top: 100%;
     display: none;
 }
-#works_list .more a.button:hover .link_animated,
+.works_list ul.more a.button:hover .link_animated,
 #contact .contact-bottom ul li a.button:hover .link_animated {
     display: flex;
     color: #000;
 }
+#contact p.copyright,
 #contact .contact-bottom p.copyright {
     margin-top: 5em;
     color: #999;
+    text-align: center;
 }
 #contact .contact-top .information ul li span,
 #contact .contact-top .information ul li p,
@@ -785,76 +788,74 @@ section h4 {
         margin-top: 8em;
     }
 }
-#works_list .sec_inner {
-    padding: 0 10vw;
+.works_list {
+    padding-top: 4em;
 }
-#works_list h4 {
-    font-size: 2em;
-    font-weight: 600;
-    position: relative;
-    color: #000;
+.works_list section {
+    padding: 4em 0 0 0;
 }
-#works_list h2 {
-    font-size: 3em;
-    display: inline;
-}
-#works_list .title {
-    font-family: "Bebas Neue";
-}
-#works_list .title span.used_skill {
-    color: #555;
-}
-#works_list .title span.explain {
-    color: #000;
-    font-size: 0.875em;
-}
-#works_list .list_wrap {
-    height: auto;
-}
-#works_list .project_wrap {
-    position: sticky;
-    left: 0;
-    top: 50px;
-    padding-top: 50px;
-    /* display: flex; */
-}
-#works_list .project_wrap h2 {
-    background-color: #c1c1c1;
-}
-#works_list .project_wrap > ul {
-    background-color: #c1c1c1; 
-}
-#works_list .project_wrap > ul > li {
-    height: 150px;
-}
-#works_list .open_wrap {
-    position: sticky;
-    left: 0;
-    top: 100px;
-    padding-top: 50px;
-}
-#works_list .open_wrap h2 {
-    background-color: #a1a1a1;
-}
-#works_list .open_wrap > ul {
-    background-color: #a1a1a1;
-}
-#works_list .open_wrap > ul > li {
-    height: 150px;
-}
-#works_list .casestudy_wrap {
-    position: sticky;
-    left: 0;
-    top: 150px;
-    padding-top: 50px;
-}
-#works_list .casestudy_wrap h2 {
-    background-color: #818181;
-}
-#works_list .casestudy_wrap > ul {
-    background-color: #818181;    
-}
-#works_list .casestudy_wrap > ul > li {
-    height: 150px;
+.works_list section h4 {
+    font-family: "Playfair";
+    font-size: 5em;
+    letter-spacing: -4px;
+    margin-left: -1em;
 }
 
+#project ul.project > li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 4em 0;
+    border-bottom: 1px solid #000;
+}
+#project ul li .image {
+    display: none;
+}
+#casestudy ul.casestudy > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 0;
+    border-bottom: 1px solid #000;
+}
+#casestudy ul li .desc,
+#project ul li .desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#casestudy ul li .desc span.duration,
+#project ul li .desc span.duration {
+    font-size: 0.875em;
+    color: #444;
+}
+#casestudy ul li .desc strong.brand,
+#project ul li .desc strong.brand {
+    font-size: 2.125em;
+    font-weight: 500;
+}
+#project ul li .desc p.article {
+    padding: 2em 0;
+    font-size: 0.9125em;
+    width: 35vw;
+}
+#project ul.project ul.more {
+    display: flex;
+    gap: 10px;
+}
+#casestudy {
+    padding: 4em 0;
+}
+#casestudy ul.casestudy ul.more {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.works_list #open_source .open_swiper {
+    overflow-x: hidden;
+    padding-top: 5em;
+}
+.works_list #open_source .open_swiper .swiper-slide {
+    background-color: #f90;
+    height: 300px;
+}
