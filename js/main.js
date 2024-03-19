@@ -342,23 +342,4 @@ let dom=document.querySelectorAll(".about-headline strong");
 
 	window.addEventListener("resize", resizeTrigger);
 
-	// if(!isMobile){
-	// 	document.body.addEventListener("mousemove", function(e){
-	// 		gsap.to(cursor, {duration: 0.2, left: e.pageX, top: e.pageY});
-	// 	});
-
-	// 	sectionList[3].addEventListener("mouseenter", function(){;
-	// 		if(!cursor.classList.contains("active1")){
-	// 			cursor.classList.add("active1");
-	// 		}
-	// 	});
-	// 	sectionList[3].addEventListener("mouseleave", function(){
-	// 		if(cursor.classList.contains("active1")){
-	// 			cursor.classList.remove("active1");
-	// 		}
-	// 	});
-	// }
-	// else {
-	// 	document.querySelector(".cursor").style.display="none";
-	// }
 });

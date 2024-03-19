@@ -64,6 +64,9 @@ body.dark {
 .dark #main h1 {
     color: #FBFCF6;
 }
+.dark header.top h1 {
+    color: #FBFCF6;
+}
 nav#gnb ul {
     display: flex;
     margin: 0 auto;
@@ -115,6 +118,9 @@ header.top a.tab span {
 	background-color: #000;
 	transition: 0.3s;
 }
+.dark header.top a.tab span {
+	background-color: #FBFCF6;
+}
 header.top a.tab span:nth-child(1) {
 	width: 100%;
 }
@@ -157,6 +163,9 @@ header.top nav#gnb ul li:last-child{
 }
 header.top nav#gnb ul li.active a {
     color: #000;
+}
+.dark header.top nav#gnb ul li.active a {
+    color: #fff;
 }
 #main .keytext_top {
     position: absolute;
@@ -297,10 +306,10 @@ nav#mobile ul li.active a {
 header.top nav#mobile ul li a {
     color: #666;
 }
-nav#mobile ul li.active a {
+header.top nav#mobile ul li.active a {
     color: #000;
 }
-header.top nav#mobile ul li.active a {
+.dark header.top nav#mobile ul li.active a {
     color: #B2DB33;
 }
 @media only screen and (max-width:1280px) {
@@ -328,7 +337,6 @@ header.top nav#mobile ul li.active a {
     #main .keytext_top .wrap {
         display: flex;
         flex-direction: column;
-        /* align-items: flex-end; */
         align-items: flex-start;
     }
     #main .text_wrap .inline .text_title,
@@ -384,26 +392,8 @@ section {
 section .sec-inner {
     padding: 0 10vw;
 }
-section h4 {
-    display: inline-block;
-    font-size: 2em;
-    font-weight: 600;
-    /* position: relative; */
-}
-/* section h4::after {
-    position: absolute;
-    content: "";
-    left: -70px;
-    top: 50%;
-    width: 50px;
-    height: 1px;
-    background-color: #000;
-} */
 .dark section h4 {
     color: #fff;
-}
-.dark section h4::after {
-    background-color: #fff;
 }
 @media only screen and (max-width:720px){
     section .sec-inner {
@@ -412,7 +402,6 @@ section h4 {
 }
 #about {
     position: relative;
-    /* overflow-y: hidden; */
 }
 #about .about-desc {
     display: flex;
@@ -577,7 +566,7 @@ section h4 {
 .dark #works a .text_wrap .inline .text_title span.slide-up {
     color: #000;
 }
-/* .dark #works a .text_wrap:hover .text_title span.slide-up, */
+
 .dark #works a .text_wrap.active .text_title span.slide-up {
     transform: translateY(0);
 }
@@ -591,7 +580,6 @@ section h4 {
     transform: translateY(-100%);
     transition: transform 1s ease;
 }
-/* .dark #works a .text_wrap:hover .text_title span.slide-up::before, */
 .dark #works a .text_wrap.active .text_title span.slide-up::before {
     transform: translateY(0);
 }
@@ -617,18 +605,19 @@ section h4 {
     position: relative;
     padding: 20vh 0 8em;
     font-family: "Bebas Neue";
-    background-color: #000;
 }
 #contact .contact-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-/*E8E5E3->FBFCF6*/
 #contact .text_wrap .inline .text_title {
     font-size: 8vw;
     text-rendering: optimizeLegibility;
     position: relative;
+    color: #000;
+}
+.dark #contact .text_wrap .inline .text_title {
     color: #FBFCF6;
 }
 #contact .text_wrap {
@@ -646,17 +635,15 @@ section h4 {
     overflow: hidden;
     transform: translateY(100%);
     transition: transform 1s ease;
-    color: #FBFCF6;
+    color: #000;
     text-align: center
 }
 #contact .text_wrap .inline .text_title span.slide-up {
     color: #000;
 }
-/* #contact .text_wrap:hover .text_title span.slide-up, */
 #contact .text_wrap.active .text_title span.slide-up {
     transform: translateY(0);
 }
-/*B2DB33 -> B2DB33 */
 #contact .text_wrap .text_title span.slide-up::before {
     display: inline;
     position: absolute;
@@ -667,7 +654,6 @@ section h4 {
     transform: translateY(-100%);
     transition: transform 1s ease;
 }
-/* #contact .text_wrap:hover .text_title span.slide-up::before, */
 #contact .text_wrap.active .text_title span.slide-up::before {
     transform: translateY(0);
 }
@@ -701,16 +687,22 @@ section h4 {
     width: fit-content;
     gap: 20px;
 }
+.works_list .more .button, 
 .works_list ul.more a.button {
     display: inline-block;
     font-family: "Roboto";
-    font-size: 0.875em;
+    font-size: 0.9125em;
     padding: 3px 20px;
     border: 1px solid #555;
     color: #555;
     border-radius: 30px;
     transition: 0.3s;
     text-align: center;
+    white-space: nowrap
+}
+.dark .works_list .more .button {
+    border: 1px solid #FBFCF6;
+    color: #FBFCF6;
 }
 #contact .contact-bottom ul li a.button {
     font-family: "Roboto";
@@ -721,11 +713,13 @@ section h4 {
     border-radius: 30px;
     transition: 0.3s;
 }
+.works_list ul.casestudy > li:hover .more .button, 
 .works_list ul.more a.button:hover,
 #contact .contact-bottom ul li a.button:hover {
     background-color: #B2DB33;
     border: 1px solid #B2DB33;
 }
+.works_list ul.casestudy > li .more .button .link,
 .works_list ul.more a.button .link,
 #contact .contact-bottom ul li a.button .link {
     position: relative;
@@ -734,22 +728,26 @@ section h4 {
     align-items: center;
     overflow: hidden;
 }
+.works_list ul.casestudy > li .more .button .link_inner,
 .works_list ul.more a.button .link_inner,
 #contact .contact-bottom ul li a.button .link_inner {
     display: flex;
     transform: translateY(0);
     transition: transform 0.3s cubic-bezier(.175,.885,.32,1.275) ;
 }
+.works_list ul.casestudy > li:hover .more .button .link_inner,
 .works_list ul.more a.button:hover .link_inner,
 #contact .contact-bottom ul li a.button:hover .link_inner {
     transform: translateY(-100%);
 }
+.works_list ul.casestudy > li .more .button .link_animated,
 .works_list ul.more a.button .link_animated,
 #contact .contact-bottom ul li a.button .link_animated {
     position: absolute;
     top: 100%;
     display: none;
 }
+.works_list ul.casestudy > li:hover .button .link_animated,
 .works_list ul.more a.button:hover .link_animated,
 #contact .contact-bottom ul li a.button:hover .link_animated {
     display: flex;
@@ -764,6 +762,11 @@ section h4 {
 #contact .contact-top .information ul li span,
 #contact .contact-top .information ul li p,
 #contact .contact-bottom ul li a span {
+    color: #000;
+}
+.dark #contact .contact-top .information ul li span,
+.dark #contact .contact-top .information ul li p,
+.dark #contact .contact-bottom ul li a span {
     color: #FBFCF6;
 }
 @media only screen and (max-width:940px){
@@ -794,22 +797,35 @@ section h4 {
 .works_list section {
     padding: 4em 0 0 0;
 }
-.works_list section h4 {
+section h4 {
     font-family: "Playfair";
     font-size: 5em;
-    letter-spacing: -4px;
-    margin-left: -1em;
+    letter-spacing: -2px;
+    margin-left: 6vw;
+    line-height: 0.9;
 }
-
+section br {
+    display: none;
+}
 #project ul.project > li {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     padding: 4em 0;
     border-bottom: 1px solid #000;
 }
-#project ul li .image {
-    display: none;
+#project ul.project > li .image span {
+    display: block;
+    width: 12em;
+    height: 12em;
+    border-radius: 50%;
+    margin-right: 3em;
+    overflow: hidden;
+}
+#project ul.project > li .image span img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 #casestudy ul.casestudy > li {
     display: flex;
@@ -818,26 +834,57 @@ section h4 {
     padding: 2em 0;
     border-bottom: 1px solid #000;
 }
-#casestudy ul li .desc,
+.dark #casestudy ul.casestudy > li {
+    border-bottom: 1px solid #FBFCF6;
+}
+.dark #casestudy ul.casestudy > li img {
+    filter: invert(50);
+}
 #project ul li .desc {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-#casestudy ul li .desc span.duration,
-#project ul li .desc span.duration {
-    font-size: 0.875em;
+#casestudy ul li > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+#casestudy ul li .left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+}
+#casestudy ul li .desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+section ul li .desc span.duration {
+    font-size: 0.9125em;
     color: #444;
 }
-#casestudy ul li .desc strong.brand,
-#project ul li .desc strong.brand {
+section ul li .desc strong.brand {
+    font-size: 2.25em;
+    font-weight: 500;
+}
+.dark section ul li .desc span.duration {
+    color: #888;
+}
+.dark #casestudy ul li .desc strong.brand {
     font-size: 2.125em;
     font-weight: 500;
+    color: #FBFCF6;
+}
+.dark #casestudy ul li .left p.skill {
+    color: #FBFCF6;
 }
 #project ul li .desc p.article {
     padding: 2em 0;
-    font-size: 0.9125em;
     width: 35vw;
+    text-align: justify;
 }
 #project ul.project ul.more {
     display: flex;
@@ -846,16 +893,57 @@ section h4 {
 #casestudy {
     padding: 4em 0;
 }
-#casestudy ul.casestudy ul.more {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+#casestudy ul.casestudy > li {
+    position: relative;
+}
+#casestudy ul.casestudy li .image {
+    display: none;
+    position: absolute;
+    left: 40%;
 }
 .works_list #open_source .open_swiper {
+    position: relative;
     overflow-x: hidden;
-    padding-top: 5em;
+    padding: 5em 0;
 }
 .works_list #open_source .open_swiper .swiper-slide {
     background-color: #f90;
     height: 300px;
+}
+.works_list #open_source .open_swiper .swiper-pagination.swiper-pagination-bullets {
+    bottom: 0;
+}
+@media only screen and (max-width:1280px) {
+    #casestudy ul li .left {
+        width: 70%;
+    }
+}
+@media only screen and (max-width:940px) {
+    #casestudy ul li .left {
+        width: 75%;
+    }
+    #project ul li .desc p.article {
+        width: 40vw;
+    }
+}
+@media only screen and (max-width:720px) {
+    #casestudy ul li .left {
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+        gap: 10px;
+    }
+    #project ul.project > li {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    #project ul li .desc p.article {
+        width: auto;
+    }
+}
+@media only screen and (max-width:499px) {
+    section br {
+        display: block;
+    }
 }
