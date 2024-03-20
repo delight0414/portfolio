@@ -663,7 +663,6 @@ section .sec-inner {
 #contact .contact-top .information ul li {
     display: flex;
     align-items: center;
-    border: none;
 }
 #contact .contact-top .information ul li:last-child {
     padding-top: 1.875em;
@@ -701,6 +700,10 @@ section .sec-inner {
     text-align: center;
     white-space: nowrap
 }
+.dark .works_list .more .button {
+    border: 1px solid #FBFCF6;
+    color: #FBFCF6;
+}
 #contact .contact-bottom ul li a.button {
     font-family: "Roboto";
     font-size: 1.125em;
@@ -710,12 +713,14 @@ section .sec-inner {
     border-radius: 30px;
     transition: 0.3s;
 }
-.works_list ul li:hover .more .button,
+.works_list ul.casestudy > li:hover .more .button, 
+.works_list .more a.button:hover,
 #contact .contact-bottom ul li a.button:hover {
     background-color: #B2DB33;
     border: 1px solid #B2DB33;
 }
-.works_list ul li .more .button .link,
+.works_list ul.casestudy > li .more .button .link,
+.works_list .more a.button .link,
 #contact .contact-bottom ul li a.button .link {
     position: relative;
     z-index: 1;
@@ -723,23 +728,27 @@ section .sec-inner {
     align-items: center;
     overflow: hidden;
 }
-.works_list ul li .more .button .link_inner,
+.works_list ul.casestudy > li .more .button .link_inner,
+.works_list .more a.button .link_inner,
 #contact .contact-bottom ul li a.button .link_inner {
     display: flex;
     transform: translateY(0);
     transition: transform 0.3s cubic-bezier(.175,.885,.32,1.275) ;
 }
-.works_list ul li:hover .more .button .link_inner,
+.works_list ul.casestudy > li:hover .more .button .link_inner,
+.works_list .more a.button:hover .link_inner,
 #contact .contact-bottom ul li a.button:hover .link_inner {
     transform: translateY(-100%);
 }
-.works_list ul li .more .button .link_animated,
+.works_list ul.casestudy > li .more .button .link_animated,
+.works_list .more a.button .link_animated,
 #contact .contact-bottom ul li a.button .link_animated {
     position: absolute;
     top: 100%;
     display: none;
 }
-.works_list ul li:hover .more .button .link_animated,
+.works_list ul.casestudy > li:hover .button .link_animated,
+.works_list .more a.button:hover .link_animated,
 #contact .contact-bottom ul li a.button:hover .link_animated {
     display: flex;
     color: #000;
@@ -782,7 +791,6 @@ section .sec-inner {
         margin-top: 8em;
     }
 }
-/*works*/
 .works_list {
     padding-top: 4em;
 }
@@ -799,34 +807,86 @@ section h4 {
 section br {
     display: none;
 }
+/* #project ul.project li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4em 0;
+    border-bottom: 1px solid #000;
+} */
 section ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 2em 0;
     border-bottom: 1px solid #000;
 }
-section ul li a {
+.dark #casestudy ul.casestudy > li {
+    border-bottom: 1px solid #FBFCF6;
+}
+.dark #casestudy ul.casestudy > li img {
+    filter: invert(50);
+}
+#project ul li .desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#casestudy ul li > a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
-section ul li a .left {
+#casestudy ul li .left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+}
+#casestudy ul li .desc {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    width: 15vw;
+    gap: 10px;
 }
-section ul li a .left span.duration {
+section ul li .desc span.duration {
     font-size: 0.9125em;
     color: #444;
 }
-section ul li a .left strong.brand {
+section ul li .desc strong.brand {
     font-size: 2.25em;
     font-weight: 500;
 }
-section ul li a .middle p.article {
+.dark section ul li .desc span.duration {
+    color: #888;
+}
+.dark #casestudy ul li .desc strong.brand {
+    font-size: 2.125em;
+    font-weight: 500;
+    color: #FBFCF6;
+}
+.dark #casestudy ul li .left p.skill {
+    color: #FBFCF6;
+}
+#project ul li .article p {
     width: 35vw;
     text-align: justify;
 }
-/*open source*/
+#project ul.project ul.more {
+    display: flex;
+    gap: 10px;
+}
+#casestudy {
+    padding: 4em 0;
+}
+#casestudy ul.casestudy > li {
+    position: relative;
+}
+#casestudy ul.casestudy li .image {
+    display: none;
+    position: absolute;
+    left: 40%;
+}
 .works_list #open_source .open_swiper {
     position: relative;
     overflow-x: hidden;
@@ -840,14 +900,36 @@ section ul li a .middle p.article {
     bottom: 0;
 }
 @media only screen and (max-width:1280px) {
-
+    #casestudy ul li .left {
+        width: 70%;
+    }
 }
 @media only screen and (max-width:940px) {
-
+    #casestudy ul li .left {
+        width: 75%;
+    }
+    #project ul li .desc p.article {
+        width: 40vw;
+    }
 }
 @media only screen and (max-width:720px) {
-
+    #casestudy ul li .left {
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+        gap: 10px;
+    }
+    #project ul.project > li {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    #project ul li .desc p.article {
+        width: auto;
+    }
 }
 @media only screen and (max-width:499px) {
-
+    section br {
+        display: block;
+    }
 }

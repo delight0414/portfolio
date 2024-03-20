@@ -67,17 +67,17 @@ window.addEventListener("load", function(){
 			n=4;
 		}
 
-		if(n === 4){
-			if(document.body.classList.contains("dark") == false){
-				document.body.classList.add("dark");
-				contactTextApplication();
-			}
-		}
-		else{
-			if(document.body.classList.contains("dark") == true){
-				document.body.classList.remove("dark");
-			}
-		}
+		// if(n === 4){
+		// 	if(document.body.classList.contains("dark") == false){
+		// 		document.body.classList.add("dark");
+		// 		contactTextApplication();
+		// 	}
+		// }
+		// else{
+		// 	if(document.body.classList.contains("dark") == true){
+		// 		document.body.classList.remove("dark");
+		// 	}
+		// }
 
 		for(let i=0; i<gnbLi.length; i++){
 			if(i === n){
@@ -165,21 +165,21 @@ window.addEventListener("load", function(){
 
 	window.addEventListener("resize", resizeTrigger);
 
-	if(!isMobile){
-		let casestudyList=document.querySelectorAll("ul.casestudy > li");
+	// if(!isMobile){
+	// 	let casestudyList=document.querySelectorAll("ul.casestudy > li");
 
-		for(let i=0; i<casestudyList.length; i++){
-			let casestudyImage=casestudyList[i].lastElementChild;
-			casestudyList[i].addEventListener("mousemove", function(e){
-				gsap.to(casestudyImage, {duration: 0.2 , top: e.offsetY});
-			});
-			casestudyList[i].addEventListener("mouseenter", function(){
-				casestudyImage.style.display="block";
-			});	
-			casestudyList[i].addEventListener("mouseleave", function(){
-				casestudyImage.style.display="none";
-			});
-		}
-	}
-	else return;
+	// 	for(let i=0; i<casestudyList.length; i++){
+	// 		let casestudyImage=casestudyList[i].lastElementChild;
+	// 		casestudyList[i].addEventListener("mousemove", function(e){
+	// 			gsap.to(casestudyImage, {duration: 0.2 , top: e.offsetY});
+	// 		});
+	// 		casestudyList[i].addEventListener("mouseenter", function(){
+	// 			casestudyImage.style.display="block";
+	// 		});	
+	// 		casestudyList[i].addEventListener("mouseleave", function(){
+	// 			casestudyImage.style.display="none";
+	// 		});
+	// 	}
+	// }
+	// else return;
 });
