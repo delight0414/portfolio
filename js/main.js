@@ -16,28 +16,28 @@ window.addEventListener("load", function(){
 	breakpoints: {
 		499: {
 			slidesPerView: 1.4,
-			spaceBetween: 5,
+			spaceBetween: 10,
 			scrollbar: {
 				dragSize: 150
 			}
 		},
 		720: {
 			slidesPerView: 2,
-			spaceBetween: 10,
+			spaceBetween: 15,
 			scrollbar: {
 				dragSize: 200
 			}
 		},
 		940: {
 			slidesPerView: 2.5,
-			spaceBetween: 15,
+			spaceBetween: 20,
 			scrollbar: {
 				dragSize: 220
 			}
 		},
 		1280: {
 			slidesPerView: 3,
-			spaceBetween: 20,
+			spaceBetween: 25,
 			scrollbar: {
 				dragSize: 285
 			}
@@ -187,29 +187,6 @@ let dom=document.querySelectorAll(".about-headline strong");
 			}, 1000);
 	}
 
-	function worksTextHover(){
-		let worksText=document.querySelector("#works .text_wrap");
-		worksText.addEventListener("mouseenter", function(e){
-			e.currentTarget.classList.add("active");
-			console.log("mouseenter");
-		});
-		worksText.addEventListener("mouseleave", function(e){
-			e.currentTarget.classList.remove("active");
-		});
-	}
-
-	function contactTextHover(){
-		let contactText=document.querySelector("#contact .text_wrap");
-		let contactTextWrapper=document.querySelector("#contact .contact-top")
-		contactTextWrapper.addEventListener("mouseenter", function(){
-			contactText.classList.add("active");
-			console.log("mouseenter");
-		});
-		contactTextWrapper.addEventListener("mouseleave", function(){
-			contactText.classList.remove("active");
-		});
-	}
-
 	let contactFlag=false;
 
 	function contactTextApplication(){
@@ -241,16 +218,13 @@ let dom=document.querySelectorAll(".about-headline strong");
 		else if(t < sectionList[4].offsetTop){
 			n=3;
 			worksTextApplication();
-			worksTextHover();
 			if(window.innerHeight + t === document.body.scrollHeight){
 				n=4;
-				contactTextHover();
-				contactTextApplication();
 			}
 		}
 		else {
 			n=4;
-			contactTextHover();
+			contactTextApplication();
 		}
 		if(t > sectionList[0].offsetTop + winh/2){
 			randomTextApplication();
