@@ -183,7 +183,7 @@ let dom=document.querySelectorAll(".about-headline strong");
 			worksText.classList.add("active");
 
 			setTimeout(function(){
-				worksText.classList.remove( "active");
+				worksText.classList.remove("active");
 			}, 1000);
 	}
 

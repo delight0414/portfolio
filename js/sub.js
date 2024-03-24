@@ -1,28 +1,27 @@
 window.addEventListener("load", function(){
 
 	var swiper = new Swiper(".openSwiper", {
-		slidesPerView: 1,
+		slidesPerView: 1.5,
 		spaceBetween: 10,
-		grabCursor: true,
-		pagination: {
-			el: ".swiper-pagination",
-			dynamicBullets: true
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
 		},
 		breakpoints: {
 			499: {
-				slidesPerView: 2,
+				slidesPerView: 1.5,
 				spaceBetween: 5
 			},
 			720: {
-				slidesPerView: 3,
+				slidesPerView: 2.5,
 				spaceBetween: 10
 			},
 			940: {
-				slidesPerView: 3.5,
+				slidesPerView: 2.5,
 				spaceBetween: 15
 			},
 			1280: {
-				slidesPerView: 4,
+				slidesPerView: 2.5,
 				spaceBetween: 20
 			}
 		}
@@ -58,7 +57,6 @@ window.addEventListener("load", function(){
 
 		if(t < section[1].offsetTop){
 			n=3;
-
 			if(window.innerHeight + t === document.body.scrollHeight){
 				n=4;
 			}
@@ -67,17 +65,17 @@ window.addEventListener("load", function(){
 			n=4;
 		}
 
-		// if(n === 4){
-		// 	if(document.body.classList.contains("dark") == false){
-		// 		document.body.classList.add("dark");
-		// 		contactTextApplication();
-		// 	}
-		// }
-		// else{
-		// 	if(document.body.classList.contains("dark") == true){
-		// 		document.body.classList.remove("dark");
-		// 	}
-		// }
+		if(n === 4){
+			if(document.body.classList.contains("dark") == false){
+				document.body.classList.add("dark");
+				contactTextApplication();
+			}
+		}
+		else{
+			if(document.body.classList.contains("dark") == true){
+				document.body.classList.remove("dark");
+			}
+		}
 
 		for(let i=0; i<gnbLi.length; i++){
 			if(i === n){
@@ -96,15 +94,6 @@ window.addEventListener("load", function(){
 	};
 
 	scrollTrigger();
-
-	contactTextWrapper.addEventListener("mouseenter", function(){
-		contactText.classList.add("active");
-		console.log("mouseenter");
-	});
-
-	contactTextWrapper.addEventListener("mouseleave", function(){
-		contactText.classList.remove("active");
-	});
 
 	function contactTextApplication(){
 		if(contactFlag) return;
@@ -158,28 +147,10 @@ window.addEventListener("load", function(){
 				mobileTab.classList.remove("open");
 				document.body.classList.remove("stop-scrolling");
 				mobileMenu.style.display="none";
-				
 			}
 		}
 	};
 
 	window.addEventListener("resize", resizeTrigger);
 
-	// if(!isMobile){
-	// 	let casestudyList=document.querySelectorAll("ul.casestudy > li");
-
-	// 	for(let i=0; i<casestudyList.length; i++){
-	// 		let casestudyImage=casestudyList[i].lastElementChild;
-	// 		casestudyList[i].addEventListener("mousemove", function(e){
-	// 			gsap.to(casestudyImage, {duration: 0.2 , top: e.offsetY});
-	// 		});
-	// 		casestudyList[i].addEventListener("mouseenter", function(){
-	// 			casestudyImage.style.display="block";
-	// 		});	
-	// 		casestudyList[i].addEventListener("mouseleave", function(){
-	// 			casestudyImage.style.display="none";
-	// 		});
-	// 	}
-	// }
-	// else return;
 });

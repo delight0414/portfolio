@@ -540,6 +540,7 @@ section .sec-inner {
 }
 #works {
     padding: 30vh 0 15vh 0;
+    font-family: "Bebas Neue";
 }
 #works a {
     display: block;
@@ -548,10 +549,12 @@ section .sec-inner {
 }
 #works a .text_wrap .inline .text_title {
     font-size: 20vw;
-    font-family: "Bebas Neue";
     text-rendering: optimizeLegibility;
     position: relative;
     color: #000;
+}
+.dark #works a .text_wrap .inline .text_title {
+    color: #FBFCF6;
 }
 #works a .text_wrap {
     width: fit-content;
@@ -559,9 +562,6 @@ section .sec-inner {
 }
 #works a .text_wrap .inline {
     overflow: hidden;
-}
-.dark #works a .text_wrap .inline .text_title {
-    color: #FBFCF6;
 }
 #works a .text_wrap .inline .text_title span.slide-up {
     display: inline;
@@ -571,12 +571,10 @@ section .sec-inner {
     overflow: hidden;
     transform: translateY(100%);
     transition: transform 1s ease;
-    color: #FBFCF6;
-    text-align: center
-}
-.dark #works a .text_wrap .inline .text_title span.slide-up {
     color: #000;
+    text-align: center;  
 }
+
 .dark #works a .text_wrap:hover .text_title span.slide-up,
 .dark #works a .text_wrap.active .text_title span.slide-up {
     transform: translateY(0);
@@ -590,6 +588,7 @@ section .sec-inner {
     color: #B2DB33;
     transform: translateY(-100%);
     transition: transform 1s ease;
+
 }
 .dark #works a .text_wrap:hover .text_title span.slide-up::before,
 .dark #works a .text_wrap.active .text_title span.slide-up::before {
@@ -650,10 +649,7 @@ section .sec-inner {
     color: #000;
     text-align: center
 }
-#contact .text_wrap .inline .text_title span.slide-up {
-    color: #000;
-}
-#contact .contact-top:hover .text_wrap .text_title span.slide-up,
+.dark #contact .contact-top:hover .text_wrap .text_title span.slide-up,
 #contact .text_wrap.active .text_title span.slide-up {
     transform: translateY(0);
 }
@@ -667,7 +663,7 @@ section .sec-inner {
     transform: translateY(-100%);
     transition: transform 1s ease;
 }
-#contact .contact-top:hover .text_wrap .text_title span.slide-up::before,
+.dark #contact .contact-top:hover .text_wrap .text_title span.slide-up::before,
 #contact .text_wrap.active .text_title span.slide-up::before {
     transform: translateY(0);
 }
@@ -702,19 +698,6 @@ section .sec-inner {
     width: fit-content;
     gap: 20px;
 }
-.works_list .more .button, 
-.works_list .more a.button {
-    display: inline-block;
-    font-family: "Roboto";
-    font-size: 0.9125em;
-    padding: 3px 20px;
-    border: 1px solid #555;
-    color: #555;
-    border-radius: 30px;
-    transition: 0.3s;
-    text-align: center;
-    white-space: nowrap
-}
 #contact .contact-bottom ul li a.button {
     font-family: "Roboto";
     font-size: 1.125em;
@@ -724,12 +707,10 @@ section .sec-inner {
     border-radius: 30px;
     transition: 0.3s;
 }
-.works_list ul li:hover .more .button,
 #contact .contact-bottom ul li a.button:hover {
     background-color: #B2DB33;
     border: 1px solid #B2DB33;
 }
-.works_list ul li .more .button .link,
 #contact .contact-bottom ul li a.button .link {
     position: relative;
     z-index: 1;
@@ -737,23 +718,19 @@ section .sec-inner {
     align-items: center;
     overflow: hidden;
 }
-.works_list ul li .more .button .link_inner,
 #contact .contact-bottom ul li a.button .link_inner {
     display: flex;
     transform: translateY(0);
     transition: transform 0.3s cubic-bezier(.175,.885,.32,1.275) ;
 }
-.works_list ul li:hover .more .button .link_inner,
 #contact .contact-bottom ul li a.button:hover .link_inner {
     transform: translateY(-100%);
 }
-.works_list ul li .more .button .link_animated,
 #contact .contact-bottom ul li a.button .link_animated {
     position: absolute;
     top: 100%;
     display: none;
 }
-.works_list ul li:hover .more .button .link_animated,
 #contact .contact-bottom ul li a.button:hover .link_animated {
     display: flex;
     color: #000;
@@ -813,78 +790,154 @@ section h4 {
 section br {
     display: none;
 }
-section ul li {
-    padding: 2em 0;
+section ul.project {
+    padding: 4em 0;
+}
+section ul.project > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
     border-bottom: 1px solid #000;
+    padding: 3em 0;
 }
-section ul li a {
+section ul.project > li .heading {
+    width: 80%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    gap: 4em;
 }
-section ul li a .heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 70%;
+section ul.project > li .brand {
+    display: block;
+    text-transform: uppercase;
+    width: 40%;
+
 }
-section ul li a .left {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    width: 15vw;
+section ul > li strong.brand {
+    font-size: 3em;
 }
-section ul li a .left span.duration {
-    font-size: 0.9125em;
-    color: #444;
-    white-space: nowrap;
-}
-section ul li a .left strong.brand {
-    font-size: 2.25em;
-    font-weight: 500;
-}
-section ul li a .middle p.article {
-    width: 35vw;
+section ul.project > li .desc {
     text-align: justify;
-    font-size: 0.975em;
+}
+section ul.project .link ul {
+    display: flex;
+    gap: 10px;
+}
+section ul.project .link ul li {
+    display: block;
+    width: 3em;
+    height: 3em;
+    border: none;
+}
+section ul.casestudy li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    padding: 2em 0;
+}
+section ul.project .link ul li a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+#casestudy ul.casestudy li .button {
+    display: block;
+    font-family: "Roboto";
+    font-size: 0.9125em;
+    padding: 3px 20px;
+    border: 1px solid #555;
+    color: #555;
+    border-radius: 30px;
+    transition: 0.3s;
+    text-align: center;
+    white-space: nowrap
+}
+#casestudy ul.casestudy li:hover .button {
+    background-color: #B2DB33;
+    border: 1px solid #B2DB33;
+}
+#casestudy ul.casestudy li .button .link {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+}
+#casestudy ul.casestudy li .button .link_inner {
+    display: flex;
+    transform: translateY(0);
+    transition: transform 0.3s cubic-bezier(.175,.885,.32,1.275) ;
+}
+#casestudy ul.casestudy li:hover .button .link_inner {
+    transform: translateY(-100%);
+}
+#casestudy ul.casestudy li .button .link_animated {
+    position: absolute;
+    top: 100%;
+    display: none;
+}
+#casestudy ul.casestudy li:hover .button .link_animated {
+    display: flex;
+    color: #000;
 }
 /*open source*/
 .works_list #open_source .open_swiper {
     position: relative;
-    overflow-x: hidden;
     padding: 5em 0;
+    overflow-x: hidden;
 }
 .works_list #open_source .open_swiper .swiper-slide {
-    background-color: #f90;
-    height: 300px;
+    border: 1px solid #000;
+    border-top: 2em solid #000;
 }
-.works_list #open_source .open_swiper .swiper-pagination.swiper-pagination-bullets {
+.works_list #open_source .open_swiper .swiper-button-next,
+.works_list #open_source .open_swiper .swiper-button-prev {
+    display: inline;
+    top: 30px;
     bottom: 0;
+    left: auto;
+    border: 1px solid #000;
+    border-radius: 30px;
+    padding: 10px 20px;
+    width: auto;
+    height: 1em;
 }
+.works_list #open_source .open_swiper .swiper-button-next {
+    right: 0;
+}
+.works_list #open_source .open_swiper .swiper-button-next::after {
+    content: url(../images/arrow.svg);
+    font-size: 1em;
+}
+.works_list #open_source .open_swiper .swiper-button-prev {
+    right: 80px;
+    transform: rotate(180deg);
+}
+.works_list #open_source .open_swiper .swiper-button-prev::after {
+    content: url(../images/arrow.svg);
+    font-size: 1em;
+}
+
 @media only screen and (max-width:1280px) {
-    section ul li a .middle p.article {
-        width: 30vw;
+    section ul > li strong.brand {
+        font-size: 2.5em;
     }
 }
 @media only screen and (max-width:940px) {
-    section ul li a .heading {
-        width: 75%;
-    }
+
 }
 @media only screen and (max-width:720px) {
     section br {
         display: block;
     }
-    section ul li a .heading {
+    section ul.project > li .heading {
+        width: 70%;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
         justify-content: space-between;
-        width: auto;
-        gap: 20px;
-    }
-    section ul li a .middle p.article {
-        width: 50vw;
+        gap: 2em;
     }
 }
 @media only screen and (max-width:499px) {
