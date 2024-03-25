@@ -87,7 +87,7 @@ window.addEventListener("load", function(){
 function randomText(str, dom){
 	let fake="A!@<>"; // you can customize what letters it will cycle through
 	let text=str; // your text
-	let speed=60;
+	let speed=30;
 	let increment= 2; // frames per step. must be 2
 
 	let length=text.length;
@@ -142,11 +142,11 @@ function randomTextApplication(){
 
 	setTimeout(function(){
 		randomText("쉬운 것을 깊게,", dom[1]);
-	}, 1000);
+	}, 500);
 
 	setTimeout(function(){
 		randomText("깊은 것을 유쾌하게!", dom[2]);
-	}, 2000);
+	}, 1000);
 }
 
 let dom=document.querySelectorAll(".about-headline strong");
