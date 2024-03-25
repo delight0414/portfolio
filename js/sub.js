@@ -1,4 +1,8 @@
 window.addEventListener("load", function(){
+	AOS.init({
+		easing: "Linear",
+		once: true
+	});
 
 	var swiper = new Swiper(".openSwiper", {
 		slidesPerView: 1.5,
