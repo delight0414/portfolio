@@ -220,11 +220,11 @@ let dom=document.querySelectorAll(".about-headline strong");
 			worksTextApplication();
 			if(window.innerHeight + t === document.body.scrollHeight){
 				n=4;
+				contactTextApplication();
 			}
 		}
 		else {
 			n=4;
-			contactTextApplication();
 		}
 		if(t > sectionList[0].offsetTop + winh/2){
 			randomTextApplication();

@@ -1,3 +1,40 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, table, dl, dd {
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	font-size: 16px;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+ul, ol {
+	list-style: none;
+}
+img {
+	max-width: 100%;
+	vertical-align: top;
+	border: none;
+}
+body {
+	font-family: "Roboto" , "Bebas Neue", "Noto Sans KR", sans-serif, "Playfair", "Oranienbaum", serif;
+	font-size: 1em;
+	scroll-behavior: smooth;
+
+}
+body.stop-scrolling {
+	height: 100%;
+	overflow: hidden;
+}
+::selection {
+	background-color: rgba(0, 0, 0, .3);
+	color: #fff;
+}
+.dark ::selection {
+	background-color: rgba(255, 255, 255, .8);
+	color: #000;
+}
 body {
     transition: 0.3s;
     background: #FBFCF6;
@@ -261,6 +298,8 @@ header.top nav#gnb ul li.active a {
     color: #000;
 }
 #main .keytext_bottom {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     right: 6vw;
     bottom: 5vh;
@@ -379,8 +418,8 @@ header.top nav#mobile ul li.active a {
         display: block;
     }
     #main .keytext_bottom {
-        left: 6vw;
-        right: 0;
+        left: 30px;
+        right: 30px;
         bottom: 5vh;
         text-align: left;
     }
@@ -560,7 +599,7 @@ section .sec-inner {
     width: fit-content;
     margin: 0 auto;
 }
-#works a .text_wrap .inline {
+.dark #works a .text_wrap .inline {
     overflow: hidden;
 }
 #works a .text_wrap .inline .text_title span.slide-up {
@@ -572,9 +611,8 @@ section .sec-inner {
     transform: translateY(100%);
     transition: transform 1s ease;
     color: #000;
-    text-align: center;  
+    text-align: center; 
 }
-
 .dark #works a .text_wrap:hover .text_title span.slide-up,
 .dark #works a .text_wrap.active .text_title span.slide-up {
     transform: translateY(0);
@@ -588,10 +626,9 @@ section .sec-inner {
     color: #B2DB33;
     transform: translateY(-100%);
     transition: transform 1s ease;
-
 }
 .dark #works a .text_wrap:hover .text_title span.slide-up::before,
-.dark #works a .text_wrap.active .text_title span.slide-up::before {
+#works a .text_wrap.active .text_title span.slide-up::before {
     transform: translateY(0);
 }
 @media only screen and (max-width:1280px) {
