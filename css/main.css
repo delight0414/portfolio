@@ -687,7 +687,7 @@ section .sec-inner {
     text-align: center
 }
 .dark #contact .contact-top:hover .text_wrap .text_title span.slide-up,
-#contact .text_wrap.active .text_title span.slide-up {
+.dark #contact .text_wrap.active .text_title span.slide-up {
     transform: translateY(0);
 }
 #contact .text_wrap .text_title span.slide-up::before {
@@ -701,7 +701,7 @@ section .sec-inner {
     transition: transform 1s ease;
 }
 .dark #contact .contact-top:hover .text_wrap .text_title span.slide-up::before,
-#contact .text_wrap.active .text_title span.slide-up::before {
+.dark #contact .text_wrap.active .text_title span.slide-up::before {
     transform: translateY(0);
 }
 #contact .contact-top .information {
@@ -824,22 +824,34 @@ section h4 {
     margin-left: 6vw;
     line-height: 0.9;
 }
-section h3 {
+section ul li h3 {
+    width: fit-content;
     display: inline-block;
     font-size: 1.725em;
     word-break: keep-all;
+    position: relative;
+}
+section ul li h3::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0.5em;
+    background-color: #B2DB33;
+    z-index: -1;
     transition: 0.3s;
+}
+section ul li:hover h3::after {
+    width: 100%;
 }
 section br {
     display: none;
 }
-#project .sec-inner {
+.works_list section .sec-inner {
     padding: 0 10vw;
 }
-#project ul li:hover h3 {
 
-    color: #B2DB33;
-}
 #project ul {
     display: grid;
     grid-gap: 30px 10px;
@@ -878,12 +890,11 @@ section br {
 #project ul li a .card .card_image .desktop {
     width: 100%;
 }
-
 #project ul li a .card .card_image .mobile {
     position: absolute;
-    bottom: -30%;
+    bottom: -15%;
     right: -1em;
-    width: 25%;
+    width: 20%;
     border-radius: 0.5em;
     overflow: hidden;
     outline: 2px solid #000;
@@ -901,7 +912,6 @@ section br {
     padding: 2px 5px;
     border-radius: 3px;
     color: #fff;
-
 }
 /*open source*/
 #open_source .open_swiper {
@@ -920,43 +930,43 @@ section br {
     bottom: 0;
     left: auto;
     border: 1px solid #000;
-    border-radius: 30px;
-    padding: 10px 20px;
-    width: auto;
+    border-radius: 15px;
+    padding: 7px 20px;
     height: 1em;
 }
 .works_list #open_source .open_swiper .swiper-button-next {
     right: 0;
 }
-.works_list #open_source .open_swiper .swiper-button-next::after {
-    content: url(../images/arrow.svg);
-    font-size: 1em;
-}
 .works_list #open_source .open_swiper .swiper-button-prev {
     right: 80px;
-    transform: rotate(180deg);
+    transform: rotateY(180deg);
 }
+/* .works_list #open_source .open_swiper .swiper-button-next::after,
 .works_list #open_source .open_swiper .swiper-button-prev::after {
-    content: url(../images/arrow.svg);
-    font-size: 1em;
-}
 
+} */
 @media only screen and (max-width:1280px) {
     section ul > li strong.brand {
         font-size: 2.5em;
     }
-    #project .sec-inner {
+    .works_list section .sec-inner {
         padding: 0 8vw;
+    }
+    #project ul li a .card .card_image {
+        padding: 2em 2em 0 2em;
     }
 }
 @media only screen and (max-width:940px) {
-    #project .sec-inner {
+    .works_list section .sec-inner {
         padding: 0 6vw;
     }
 }
 @media only screen and (max-width:720px) {
     section br {
         display: block;
+    }
+    .works_list section .sec-inner {
+        padding: 0 30px;
     }
     section ul.project > li .heading {
         width: 70%;
@@ -967,6 +977,9 @@ section br {
     }
     #project ul {
         grid-template-columns: repeat(1, 1fr);
+    }
+    #project ul li a .card .card_image {
+        padding: 3em 3em 0 3em;
     }
 }
 @media only screen and (max-width:499px) {
