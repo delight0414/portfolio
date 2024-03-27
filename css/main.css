@@ -862,6 +862,7 @@ section br {
     position: relative;
     overflow: hidden;
     padding: 3em 3em 0 3em;
+    aspect-ratio: 16/9;
 }
 #project ul li a .card .card_image img {
     width: 100%;
@@ -871,7 +872,7 @@ section br {
 }
 #project ul li a span.background {
     position: absolute;
-    background: url(/images/hybe_desktop.png);
+    background: url(../images/hybe_desktop.png);
     background-size: cover;
     filter: blur(20px) invert(20%);
     z-index: -1;
@@ -883,16 +884,22 @@ section br {
 #project ul li a .card .card_image .mockup {
     position: relative;
     transition: 0.2s;
+    width: 100%;
+    height: 100%;
 }
 #project ul li:hover a .card .card_image .mockup {
     transform: scale(1.05);
 }
-#project ul li a .card .card_image .desktop {
-    width: 100%;
-}
-#project ul li a .card .card_image .mobile {
+#project ul li a .card .card_image .mockup .desktop {
     position: absolute;
-    bottom: -15%;
+    bottom: -5%;
+    left: 0;
+    height: 100%;
+    border-top: 3px solid #000;
+}
+#project ul li a .card .card_image .mockup .mobile {
+    position: absolute;
+    bottom: -10%;
     right: -1em;
     width: 20%;
     border-radius: 0.5em;
@@ -922,6 +929,16 @@ section br {
 #open_source .open_swiper .swiper-slide {
     border: 1px solid #000;
     border-top: 2em solid #000;
+    height: 30vh;
+    position: relative;
+}
+#open_source .open_swiper .swiper-slide .desc strong {
+    font-size: 2em;
+}
+#open_source .open_swiper .swiper-slide .desc p {
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 #open_source .open_swiper .swiper-button-next,
 #open_source .open_swiper .swiper-button-prev {
@@ -929,24 +946,70 @@ section br {
     top: 30px;
     bottom: 0;
     left: auto;
-    border: 1px solid #000;
-    border-radius: 15px;
-    padding: 7px 20px;
-    height: 1em;
 }
-.works_list #open_source .open_swiper .swiper-button-next {
+#open_source .open_swiper .swiper-button-next {
     right: 0;
+    width: 4em;
+    height: 2em;
+    background: url(../images/arrow.svg) no-repeat;
+    background-size: contain;
 }
-.works_list #open_source .open_swiper .swiper-button-prev {
+#open_source .open_swiper .swiper-button-prev {
     right: 80px;
-    transform: rotateY(180deg);
+    width: 4em;
+    height: 2em;
+    background: url(../images/arrow.svg) no-repeat;
+    background-size: contain;
+    transform: rotate(180deg);
 }
-/* .works_list #open_source .open_swiper .swiper-button-next::after,
-.works_list #open_source .open_swiper .swiper-button-prev::after {
+#open_source .open_swiper .swiper-button-next::after,
+#open_source .open_swiper .swiper-button-prev::after {
+    content:"";
+}
+#casestudy ul {
+    margin-top: 3em;
+}
+#casestudy ul li {
+    border-bottom: 1px solid #444;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em 0;
 
-} */
+}
+#casestudy ul li strong.brand {
+    display: inline-block;
+    width: 100%;
+    font-size: 3em;
+    cursor: pointer;
+    position: relative;
+}
+#casestudy ul li strong.brand::after {
+    position: absolute;
+    content: "";
+    height: 0.725em;
+    width: 0.725em;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(../images/more.svg) no-repeat;
+    background-size: cover;
+    transition: 0.2s;
+}
+#casestudy ul li.active strong.brand::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+#casestudy ul li .hide_desc {
+    display: none;
+}
+#casestudy ul li.active .hide_desc {
+    display: flex;
+    gap: 2em;
+}
+#casestudy ul li .hide_desc a {
+    background-color: #f90;
+}
 @media only screen and (max-width:1280px) {
-    section ul > li strong.brand {
+    #casestudy ul li strong.brand {
         font-size: 2.5em;
     }
     .works_list section .sec-inner {
