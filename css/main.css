@@ -815,7 +815,7 @@ section .sec-inner {
     padding-top: 4em;
 }
 .works_list section {
-    padding: 4em 0 0 0;
+    padding: 6em 0 0 0;
 }
 section h4 {
     font-family: "Playfair";
@@ -851,10 +851,9 @@ section br {
 .works_list section .sec-inner {
     padding: 0 10vw;
 }
-
 #project ul {
     display: grid;
-    grid-gap: 30px 10px;
+    grid-gap: 30px;
     grid-template-columns: repeat(2, 1fr);
     margin-top: 3em;
 }
@@ -867,14 +866,13 @@ section br {
 #project ul li a .card .card_image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     object-position: top;
 }
 #project ul li a span.background {
     position: absolute;
-    background: url(../images/hybe_desktop.png);
     background-size: cover;
-    filter: blur(20px) invert(20%);
+    background-position: bottom;
+    filter: blur(20px);
     z-index: -1;
     left: 0;
     top: 0;
@@ -966,20 +964,28 @@ section br {
 #open_source .open_swiper .swiper-button-prev::after {
     content:"";
 }
+/* #casestudy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+#casestudy .sec-inner {
+    padding: 0 6vw 0 0;
+    width: 50%;
+} */
 #casestudy ul {
     margin-top: 3em;
 }
 #casestudy ul li {
-    border-bottom: 1px solid #444;
-    width: 80%;
-    margin: 0 auto;
+    border-bottom: 1px solid #888;
     padding: 1em 0;
-
+    overflow: hidden;
 }
 #casestudy ul li strong.brand {
     display: inline-block;
     width: 100%;
-    font-size: 3em;
+    font-size: 2em;
     cursor: pointer;
     position: relative;
 }
@@ -1000,28 +1006,43 @@ section br {
 }
 #casestudy ul li .hide_desc {
     display: none;
+    height: 0;
+    padding-top: 1em;
 }
-#casestudy ul li.active .hide_desc {
-    display: flex;
-    gap: 2em;
+.dark #casestudy ul li {
+    border-bottom: 1px solid #444;
 }
-#casestudy ul li .hide_desc a {
-    background-color: #f90;
+.dark #casestudy ul li strong.brand {
+    color: #FBFCF6;
 }
+.dark #casestudy ul li strong.brand::after {
+    filter: invert(100);
+}
+.dark #casestudy ul li .hide_desc p {
+    color: #FBFCF6;
+}
+
 @media only screen and (max-width:1280px) {
-    #casestudy ul li strong.brand {
-        font-size: 2.5em;
-    }
     .works_list section .sec-inner {
         padding: 0 8vw;
+    }
+    #project ul {
+        grid-gap: 30px 20px;
     }
     #project ul li a .card .card_image {
         padding: 2em 2em 0 2em;
     }
+    #casestudy ul li strong.brand {
+        font-size: 1.725em;
+    }
+
 }
 @media only screen and (max-width:940px) {
     .works_list section .sec-inner {
         padding: 0 6vw;
+    }
+    #project ul {
+        grid-gap: 30px 10px;
     }
 }
 @media only screen and (max-width:720px) {
@@ -1031,6 +1052,7 @@ section br {
     .works_list section .sec-inner {
         padding: 0 30px;
     }
+    
     section ul.project > li .heading {
         width: 70%;
         display: flex;
@@ -1044,6 +1066,12 @@ section br {
     #project ul li a .card .card_image {
         padding: 3em 3em 0 3em;
     }
+    #casestudy ul li strong.brand {
+        font-size: 1.5em;
+    }
 }
 @media only screen and (max-width:499px) {
+    #casestudy ul li strong.brand {
+        font-size: 1.875em;
+    }
 }

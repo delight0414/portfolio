@@ -47,6 +47,18 @@ window.addEventListener("load", function(){
 	let mobileMenu=document.querySelector("nav#mobile");
 	let mobileList=mobileMenu.firstElementChild.children;
 
+	let projectList=document.querySelectorAll("#project ul li");
+	let projectListBg=document.querySelectorAll("#project ul li a span.background");
+	let imageUrl;
+let BgArray=["hybe", "nexon", "portfolio", "MINI", "???"];
+	for(let i=0; i<projectList.length; i++){
+
+		imageUrl=`./images/${BgArray[i]}_desktop.png`;
+
+		projectListBg[i].style.backgroundImage=`url(${imageUrl})`;
+	}
+
+
 	let casestudyList=document.querySelectorAll("#casestudy ul li");
 
 	gnbLi[n].classList.add("active");
@@ -132,7 +144,6 @@ window.addEventListener("load", function(){
 	});
 
 	for(let i=0; i<section.length; i++){
-		// let idx=i+3
 		gnbLi[i+3].addEventListener("click", function(e){
 			e.preventDefault();
 
@@ -171,11 +182,25 @@ window.addEventListener("load", function(){
 
 	for(let i=0; i<casestudyList.length; i++){
 		casestudyList[i].addEventListener("click", function(e){
-			let casestudyDesc=casestudyList[i].lastElementChild;
-			e.currentTarget.classList.add("active");
-			casestudyDesc.style.display="block";
+			if(!casestudyList[i].classList.contains("active")){
+				for(let j=0; j<casestudyList.length; j++){
+					if(j === i){
+						casestudyList[j].classList.add("active");
+						gsap.fromTo(casestudyList[j].lastElementChild, {display:"block", height:0}, {height:"auto", duration: 0.3});
+					}
+					else{
+						casestudyList[j].classList.remove("active");
+						gsap.to(casestudyList[j].lastElementChild, {height:0, display:"none", onComplete: function(){
+							casestudyList[j].lastElementChild.removeAttribute("style");}});
+					}
+				}
+			}
+			else{
+				casestudyList[i].classList.remove("active");
+				gsap.to(casestudyList[i].lastElementChild, {height:0, display:"none", onComplete: function(){
+					casestudyList[i].lastElementChild.removeAttribute("style");}});
+			}
 		});
-		
 	}
 
 });
