@@ -36,7 +36,7 @@ window.addEventListener("load", function(){
 
 	let scrollT;
 
-	let section=[document.getElementById("casestudy"), document.getElementById("contact")];
+	let section=[document.getElementById("project"), document.getElementById("contact")];
 
 	let t=0;
 	let n=3;
@@ -46,6 +46,8 @@ window.addEventListener("load", function(){
 	let mobileTab=document.querySelector("header.top a.tab");
 	let mobileMenu=document.querySelector("nav#mobile");
 	let mobileList=mobileMenu.firstElementChild.children;
+
+	let casestudyList=document.querySelectorAll("#casestudy ul li");
 
 	gnbLi[n].classList.add("active");
 	mobileList[n].classList.add("active");
@@ -129,10 +131,20 @@ window.addEventListener("load", function(){
 		}
 	});
 
-	for(let i=0; i<mobileList.length; i++){
-		mobileList[i].addEventListener("click", function(e){
+	for(let i=0; i<section.length; i++){
+		// let idx=i+3
+		gnbLi[i+3].addEventListener("click", function(e){
 			e.preventDefault();
-			targety=sectionList[i].offsetTop;
+
+			targety=section[i].offsetTop;
+			gsap.to(window, {scrollTo: targety, duration:0.5});
+		});
+	}
+
+	for(let i=0; i<section.length; i++){
+		mobileList[i+3].addEventListener("click", function(e){
+			e.preventDefault();
+			targety=section[i].offsetTop;
 
 			if(mobileTab.classList.contains("open")){
 				mobileTab.classList.remove("open");
@@ -156,5 +168,14 @@ window.addEventListener("load", function(){
 	};
 
 	window.addEventListener("resize", resizeTrigger);
+
+	for(let i=0; i<casestudyList.length; i++){
+		casestudyList[i].addEventListener("click", function(e){
+			let casestudyDesc=casestudyList[i].lastElementChild;
+			e.currentTarget.classList.add("active");
+			casestudyDesc.style.display="block";
+		});
+		
+	}
 
 });
